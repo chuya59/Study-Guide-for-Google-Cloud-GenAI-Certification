@@ -1,5 +1,5 @@
 
-# 生成式 AI 基础 (GenAI Fundamentals) 完整学习指南
+# 生成式 AI 基础 (GenAI Fundamentals) 
 
 本文档结合了核心概念的可视化图解与详细的文字解析，旨在帮助备考的小伙伴快速且系统地掌握生成式 AI 及其底层技术体系。
 
