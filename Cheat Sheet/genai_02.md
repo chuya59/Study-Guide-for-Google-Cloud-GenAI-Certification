@@ -12,37 +12,39 @@
 
 下面这个层级图展示了生成式 AI 从底层算力到顶层用户界面的堆栈结构：
 
-flowchart BT  
-    subgraph Layer5 \[5. 面向用户的前端\]  
-        App\[生成式 AI 赋能的应用\<br/\>GenAI-enabled Applications\]  
+```mermaid
+flowchart BT
+    subgraph Layer5 [5. 面向用户的前端]
+        App[生成式 AI 赋能的应用<br/>GenAI-enabled Applications]
     end
 
-    subgraph Layer4 \[4. 自主任务与决策\]  
-        Agent\[智能体层\<br/\>Agents\]  
+    subgraph Layer4 [4. 自主任务与决策]
+        Agent[智能体层<br/>Agents]
     end
 
-    subgraph Layer3 \[3. 基础设施管理与集成\]  
-        Platform\[平台层\<br/\>Platforms\]  
+    subgraph Layer3 [3. 基础设施管理与集成]
+        Platform[平台层<br/>Platforms]
     end
 
-    subgraph Layer2 \[2. 算法与知识库\]  
-        Model\[模型层\<br/\>Models\]  
+    subgraph Layer2 [2. 算法与知识库]
+        Model[模型层<br/>Models]
     end
 
-    subgraph Layer1 \[1. 物理与计算资源\]  
-        Infra\[基础设施层\<br/\>Infrastructure\]  
+    subgraph Layer1 [1. 物理与计算资源]
+        Infra[基础设施层<br/>Infrastructure]
     end
 
-    Infra \--\>|提供算力与存储| Model  
-    Model \--\>|提供智能与生成能力| Platform  
-    Platform \--\>|提供API与工具集成| Agent  
-    Agent \--\>|执行多步任务与行动| App
+    Infra -->|提供算力与存储| Model
+    Model -->|提供智能与生成能力| Platform
+    Platform -->|提供API与工具集成| Agent
+    Agent -->|执行多步任务与行动| App
 
-    style Infra fill:\#1e293b,color:\#fff,stroke:\#0f172a,stroke-width:2px  
-    style Model fill:\#0369a1,color:\#fff,stroke:\#0c4a6e,stroke-width:2px  
-    style Platform fill:\#7e22ce,color:\#fff,stroke:\#581c87,stroke-width:2px  
-    style Agent fill:\#be185d,color:\#fff,stroke:\#831843,stroke-width:2px  
-    style App fill:\#b45309,color:\#fff,stroke:\#78350f,stroke-width:2px
+    style Infra fill:#1e293b,color:#fff,stroke:#0f172a,stroke-width:2px
+    style Model fill:#0369a1,color:#fff,stroke:#0c4a6e,stroke-width:2px
+    style Platform fill:#7e22ce,color:#fff,stroke:#581c87,stroke-width:2px
+    style Agent fill:#be185d,color:#fff,stroke:#831843,stroke-width:2px
+    style App fill:#b45309,color:#fff,stroke:#78350f,stroke-width:2px
+```
 
 ### **2.2 核心回顾：一个形象的类比**
 
@@ -143,17 +145,22 @@ Vertex AI 内置了强大的 **MLOps（机器学习运维）工具集**：
 
 **标准模型创建 5 步工作流**：
 
-flowchart LR  
-    Step1\[1. 收集数据\] \--\> Step2\[2. 准备数据\<br\>格式与标签\]  
-    Step2 \--\> Step3\[3. 训练模型\<br\>参数与构建\]  
-    Step3 \--\> Step4\[4. 管理模型\<br\>评估与监控\]  
-    Step4 \--\> Step5\[5. 部署预测\<br\>线上应用\]  
-      
-    style Step1 fill:\#f0f9ff,stroke:\#0284c7  
-    style Step2 fill:\#e0f2fe,stroke:\#0284c7  
-    style Step3 fill:\#bae6fd,stroke:\#0284c7  
-    style Step4 fill:\#7dd3fc,stroke:\#0284c7  
-    style Step5 fill:\#38bdf8,stroke:\#0284c7
+```mermaid
+
+flowchart LR
+    Step1[1. 收集数据] --> Step2[2. 准备数据<br>格式与标签]
+    Step2 --> Step3[3. 训练模型<br>参数与构建]
+    Step3 --> Step4[4. 管理模型<br>评估与监控]
+    Step4 --> Step5[5. 部署预测<br>线上应用]
+    
+    style Step1 fill:#f0f9ff,stroke:#0284c7
+    style Step2 fill:#e0f2fe,stroke:#0284c7
+    style Step3 fill:#bae6fd,stroke:#0284c7
+    style Step4 fill:#7dd3fc,stroke:#0284c7
+    style Step5 fill:#38bdf8,stroke:#0284c7
+
+
+```
 
 ## **7\. 基础设施层详解：生成式 AI 的底座**
 
