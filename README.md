@@ -2,6 +2,8 @@
 
 本项目聚焦于 Google Cloud Generative AI Leader 认证考试，旨在为考生提供全面的学习资料、知识速查表及官方参考文档，助力高效备考与能力提升。
 
+官方学习路径：https://www.skills.google/paths/1951?hl=zh-cn
+
 ## 目录结构
 
 - `Cheat Sheet/` — 领袖认证核心知识速查表，覆盖考试重点、流程要点、典型场景和案例分析，方便考前查漏补缺。
