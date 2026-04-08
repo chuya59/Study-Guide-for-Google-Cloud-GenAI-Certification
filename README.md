@@ -1,6 +1,6 @@
-# **Google Cloud 生成式 AI 认证备考全攻略 (中文精编版)**
+# **Google Cloud 生成式 AI Leader 认证备考全攻略 (中文精编版)**
 
-欢迎来到 **Google Cloud GenAI 认证备考仓库**！本仓库致力于为正在准备 Google Cloud Generative AI 相关认证（如 Cloud Digital Leader, ML Engineer 附加模块或专门的 GenAI 认证）的开发者、架构师和业务决策者提供**高质量、结构化、中英对照**的复习资料。
+欢迎来到 **Google Cloud GenAI 认证备考仓库**！本仓库致力于为正在准备 Google Cloud Generative AI Leader 认证的小伙伴分享自己的学习资料。
 
 所有资料均经过深度提炼与排版优化，去除了冗余信息，直击核心考点。
 
@@ -10,7 +10,7 @@
 
 ### 1. [知识点速记指南 (Cheat Sheet)](./Cheat%20Sheet)
 
-这是**核心讲义**。笔者将庞杂的官方文档提炼成了极其精简的考点清单，按主题分类，重点加粗。
+这是**核心讲义**。我将庞杂的官方文档提炼成了极其精简的考点清单，按主题分类，重点加粗。
 
 * **涵盖内容**：深度学习与基础模型概念、Vertex AI 等 Google Cloud 核心工具链、RAG 与提示工程技巧、SAIF 安全框架、Responsible AI 原则及企业落地战略（如创意矩阵法）。
 
@@ -68,7 +68,7 @@
 
    * 模型参数控制（如输出长度限制）与人机协同 (HITL)。
 
-4. **主题 4：生成式 AI 战略**
+4. **主题 4：企业生成式 AI 战略**
 
    * 企业 AI 战略规划（多向协同策略、创意矩阵法 Idea Matrix）。
 
