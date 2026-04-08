@@ -1,4 +1,4 @@
-# **Google Cloud 生成式 AI Leader 认证备考全攻略 (中文精编版)**
+# **Google Cloud Generative AI Leader 认证备考全攻略 (中文版)**
 
 欢迎来到 **Google Cloud GenAI 认证备考仓库**！本仓库致力于为正在准备 Google Cloud Generative AI Leader 认证的小伙伴分享自己的学习资料。
 
