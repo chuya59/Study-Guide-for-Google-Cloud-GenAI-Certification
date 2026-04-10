@@ -408,4 +408,915 @@
           },
           {
             id: 11,
-            q: "A marketing team wants to use a foundation model to create social media and advertising campaigns. They want to create written articles and images from text. They lack deep AI expertise and need a versatile solution. Which Google
+            q: "A marketing team wants to use a foundation model to create social media and advertising campaigns. They want to create written articles and images from text. They lack deep AI expertise and need a versatile solution. Which Google foundation model should they use?",
+            opts: {
+              A: "Gemini",
+              B: "Gemma",
+              C: "Veo",
+              D: "Imagen"
+            },
+            ans: "A",
+            trans: "营销团队需要一个既能写文章又能生成图片的多功能模型。",
+            exp: "Gemini 是原生多模态模型（支持文本、图像等），而 Imagen 仅限于图像，Veo 限于视频。"
+          },
+          {
+            id: 12,
+            q: "A data science team needs a centralized and organized location to store its various model versions, track their metadata, and easily deploy them to the respective applications. What Google Cloud service should they use?",
+            opts: {
+              A: "Cloud Storage",
+              B: "Vertex AI Pipelines",
+              C: "BigQuery",
+              D: "Model Registry"
+            },
+            ans: "D",
+            trans: "团队需要集中存储模型版本、跟踪元数据并轻松部署。应使用什么服务？",
+            exp: "Vertex AI Model Registry 专用于 MLOps 中集中管理和归档模型资产。"
+          },
+          {
+            id: 13,
+            q: "What is a characteristic of Google Cloud as a generative AI company?",
+            opts: {
+              A: "Google Cloud relies on proprietary, closed-source AI technologies for maximum security benefits.",
+              B: "Google Cloud has an AI-first focus that enables innovation, with continuous updates and broad integration across its platform.",
+              C: "Google Cloud ensures that all generative AI models and data are completely secured and isolated from external networks.",
+              D: "Google Cloud provides fully autonomous AI agents that require zero configuration or management overhead."
+            },
+            ans: "B",
+            trans: "Google Cloud 作为 GenAI 公司的特征是什么？",
+            exp: "以 AI 优先，赋能创新，持续更新并在平台中广泛集成。"
+          },
+          {
+            id: 14,
+            q: "What will Google Cloud’s Agent Assist help a company achieve?",
+            opts: {
+              A: "The ability to analyze conversational data to identify customer sentiment, common topics of discussion, and insights into agent performance and customer experience.",
+              B: "The ability to provide real-time assistance and recommended responses to live customer service agents during their interactions.",
+              C: "The infrastructure to provide an enterprise-grade contact center solution with omnichannel support, routing, and integration with CRM systems.",
+              D: "The ability to build and deploy deterministic and generative chatbot agents for automated customer support."
+            },
+            ans: "B",
+            trans: "Agent Assist 能帮助公司实现什么？",
+            exp: "在交互期间为人工客服提供实时辅助和推荐响应。"
+          },
+          {
+            id: 15,
+            q: "A company wants a generative AI platform that provides the infrastructure, tools, and pre-trained models needed to build, deploy, and manage its generative AI solutions. Which Google Cloud offering should the company use?",
+            opts: {
+              A: "BigQuery",
+              B: "Google Kubernetes Engine (GKE)",
+              C: "Google Cloud Storage",
+              D: "Vertex AI"
+            },
+            ans: "D",
+            trans: "需要一个能构建、部署、管理 GenAI 解决方案（含基础设施、工具、预训练模型）的平台。",
+            exp: "Vertex AI 是 Google Cloud 统一的端到端机器学习平台。"
+          },
+          {
+            id: 16,
+            q: "A company is exploring Google Agentspace to improve how its employees search for information on their enterprise systems and automate certain tasks. What is the key business advantage of using Agentspace?",
+            opts: {
+              A: "Enhanced real-time communication and collaboration among team members.",
+              B: "More granular control over support team access and permissions for sensitive data.",
+              C: "Improved productivity and data interaction using AI assistants and advanced document analysis.",
+              D: "Greater interoperability with legacy software systems and databases."
+            },
+            ans: "C",
+            trans: "探索 Agentspace 改善员工搜索和任务自动化。其关键业务优势？",
+            exp: "利用 AI 助手和高级文档分析提高生产力与数据交互效率。"
+          },
+          {
+            id: 17,
+            q: "An organization wants granular control over who can use and see their generative AI models and related resources on Google Cloud. Which Google Cloud security offering is specifically for this purpose?",
+            opts: {
+              A: "Workload monitoring tools.",
+              B: "Secure-by-design infrastructure.",
+              C: "Identity and Access Management.",
+              D: "Security Command Center."
+            },
+            ans: "C",
+            trans: "组织希望对“谁能使用和查看 GenAI 模型”进行精细控制。应使用哪个安全产品？",
+            exp: "IAM 身份和访问管理专门用于管理资源级别的访问权限控制。"
+          },
+          {
+            id: 18,
+            q: "A large ecommerce company with a substantial product catalog and many support documents has customers struggling to find information on their website. This leads to high support costs and poor user experience. The company wants a Google Cloud solution to improve website search and reduce support costs while improving customer satisfaction. What Google Cloud product should the company use?",
+            opts: {
+              A: "Google Shopping",
+              B: "Google Search",
+              C: "Vertex AI Search",
+              D: "Vertex AI Platform"
+            },
+            ans: "C",
+            trans: "电商网站客户难以找到商品，支持成本高。希望改善网站搜索。应使用什么产品？",
+            exp: "Vertex AI Search 提供开箱即用的电商搜索、多模态搜索解决方案。"
+          },
+          {
+            id: 19,
+            q: "A company wants to adopt generative AI and is concerned about vendor lock-in. They want to maintain flexibility in their technology stack. What Google Cloud strength would ease their concerns?",
+            opts: {
+              A: "Google Cloud’s strict adherence to proprietary technologies ensures the highest level of security and performance.",
+              B: "Google Cloud’s AI solutions are pre-packaged for easy deployment, eliminating the need for customization and integration efforts.",
+              C: "Google Cloud’s AI solutions have an open approach that supports customer choice across offerings.",
+              D: "Google Cloud’s focus on automation aims to replace human jobs with AI systems, potentially leading to significant workforce reductions."
+            },
+            ans: "C",
+            trans: "担心供应商绑定 (vendor lock-in)，希望保持灵活性。Google Cloud 哪项优势能缓解此担忧？",
+            exp: "Google 提供大量开源模型 (Gemma, Llama) 及广泛的框架支持，采用开放式方法，避免底层技术绑定。"
+          },
+          {
+            id: 20,
+            q: "A company’s sales team spends a significant amount of time researching potential leads and manually entering data into their customer relationship management (CRM) tool. They want to improve the team’s efficiency and enable them to focus on building relationships and closing deals. What should the organization do?",
+            opts: {
+              A: "Develop a custom AI solution using Google Cloud’s AutoML Natural Language to analyze lead communications and automatically update the CRM.",
+              B: "Implement Google Cloud’s Contact Center AI to qualify leads and route them to the appropriate sales representatives.",
+              C: "Implement Google Agentspace \"unified enterprise search\" including a CRM agent to automate lead research and data entry.",
+              D: "Integrate the CRM with a popular sales intelligence platform to automatically enrich lead profiles with valuable data."
+            },
+            ans: "C",
+            trans: "销售团队耗时研究线索并手动录入 CRM。如何提高效率？",
+            exp: "实施 Agentspace，加入 CRM 智能体自动执行线索研究和数据录入。"
+          },
+          {
+            id: 21,
+            q: "A logistics company wants to use a generative AI (gen AI) agent to automatically check real-time inventory levels across its warehouses and adjust delivery schedules. The gen AI agent needs access to internal inventory data. They want the most cost-effective solution. What should the organization do?",
+            opts: {
+              A: "Build a custom API instead of using the gen AI agent.",
+              B: "Use pre-built gen AI chatbots for inventory questions.",
+              C: "Use Vertex AI Studio to fine-tune a model with sample inventory data.",
+              D: "Use Google Cloud databases and Vertex AI for the agent to get live data."
+            },
+            ans: "D",
+            trans: "物流公司需用智能体检查实时库存。最具成本效益的方案？",
+            exp: "微调模型成本高且无法获取“实时”数据。最佳方案是将模型连接到数据库工具以提取实时上下文。"
+          },
+          {
+            id: 22,
+            q: "An organization needs an AI tool to analyze and summarize lengthy customer feedback text transcripts. You need to choose a Google foundation model with a large context window. What foundation model should the organization choose?",
+            opts: {
+              A: "Gemini",
+              B: "CodeGemma",
+              C: "Imagen",
+              D: "Chirp"
+            },
+            ans: "A",
+            trans: "需要大上下文窗口的基础模型来分析冗长的客户反馈记录。",
+            exp: "Gemini 模型支持极长的上下文窗口（百万级别 Tokens）。"
+          },
+          {
+            id: 23,
+            q: "A large e-commerce company with a vast and frequently updated product catalog finds that customers struggle to find products on their website, and support agents speed too much time finding detailed product information. The company wants to improve search accuracy and efficiency for both customers and support. What Google Cloud solution should they use?",
+            opts: {
+              A: "Vertex AI Conversation",
+              B: "Vertex AI Natural Language API",
+              C: "Pre-built RAG with VERTEX AI Search",
+              D: "Vertex AI Model Garden"
+            },
+            ans: "C",
+            trans: "改善电商产品发现与搜索准确性。",
+            exp: "Vertex AI Search 底层完美融合了 RAG 技术，提供极高的搜索相关性。"
+          },
+          {
+            id: 24,
+            q: "An organization wants to quickly experiment with different Gemini models and parameters for content creation without a complex setup. What service should the organization use for this initial exploration?",
+            opts: {
+              A: "Vertex AI Studio",
+              B: "Vertex AI Prediction",
+              C: "Google AI Studio",
+              D: "Gemini for Google Workspace"
+            },
+            ans: "C",
+            trans: "组织希望无需复杂设置即可快速试用不同的 Gemini 模型和参数进行初步探索。",
+            exp: "Google AI Studio 面向快速实验、界面极简，适合初期无需复杂设置的原型开发。"
+          },
+          {
+            id: 25,
+            q: "An organization wants to understand trends in customer interactions, identify common issues, gauge customer sentiment, and improve the overall customer experience across both their automated chatbot interactions and live agent support. They need a tool that can analyze their existing conversational data to gain actionable business intelligence. What component of Google’s Customer Engagement Suite best addresses this need?",
+            opts: {
+              A: "Agent Assist",
+              B: "Google Cloud Contact Center as a Service",
+              C: "Conversational Agents",
+              D: "Conversational Insights"
+            },
+            ans: "D",
+            trans: "需要一种工具来分析聊天机器人和人工客服的所有对话数据，提取趋势和情感分析洞见。",
+            exp: "Conversational Insights (对话分析洞见) 专门用于此类任务。"
+          },
+          {
+            id: 26,
+            q: "What is a key advantage of using Google’s custom-designed TPUs?",
+            opts: {
+              A: "TPUs increase the storage capacity and data retrieval speeds within Google Cloud data centers.",
+              B: "TPUs are lightweight processors intended for deployment on edge devices.",
+              C: "TPUs are specialized AI processors that excel at parallel processing for machine learning workloads.",
+              D: "TPUs are primarily designed to improve the general processing speed of virtual machines in the cloud."
+            },
+            ans: "C",
+            trans: "Google 定制 TPU 的主要优势是什么？",
+            exp: "专精于机器学习工作负载并行处理的专用 AI 处理器。"
+          },
+          {
+            id: 27,
+            q: "A company is trying to decide which platform to use to optimize its generative AI (gen AI) solutions. Why should the company use Vertex AI Platform?",
+            opts: {
+              A: "It provides gen AI coding assistance with enterprise security and privacy protection.",
+              B: "It provides a mechanism for efficient analysis and exploration of large datasets used in machine learning.",
+              C: "It provides a unified platform of tools for building, deploying, and managing machine learning.",
+              D: "It provides scalable and cost-effective object storage for data used in machine learning workflows."
+            },
+            ans: "C",
+            trans: "为什么选择 Vertex AI 平台来优化 GenAI 解决方案？",
+            exp: "它提供了一个统一的平台工具集，用于构建、部署和管理机器学习。"
+          },
+          {
+            id: 28,
+            q: "A finance team wants to use Gemma to help with daily tasks so that the financial analysts can focus on other work. Which business problem can Gemma most efficiently address?",
+            opts: {
+              A: "The struggle to accurately extract key financial figures and insights from a variety of document formats, such as balance sheets and income statements, for quick reporting.",
+              B: "The complexity of building and deploying sophisticated internal knowledge bases to answer employees’ finance-related questions with accurate and up-to-date information.",
+              C: "The difficulty in analyzing large datasets of financial transactions and market data to identify anomalies and predict future financial performance.",
+              D: "The challenge of efficiently producing high-quality written summaries and initial drafts of financial communications."
+            },
+            ans: "D",
+            trans: "财务团队使用轻量级 Gemma 模型，最能高效解决哪个问题？",
+            exp: "Gemma 作为文本大语言模型，最擅长生成式文本任务（如摘要和起草）。预测与复杂知识库需专门的 AutoML 或 RAG 平台。"
+          },
+          {
+            id: 29,
+            q: "A research company needs to analyze several lengthy PDF documents containing financial reports and identify key performance indicators (KPIs) and their trends over the past year. They want a Google Cloud prebuilt generative AI tool that can process these documents and provide summarized insights directly from the source material with citations. What should the analyst do?",
+            opts: {
+              A: "Use NotebookLM to upload and analyze the documents.",
+              B: "Create a custom Gem in Gemini Advanced with predefined KPIs to look across different financial reports.",
+              C: "Use Gemini for Google Workspace within Google Docs to copy and paste sections of the reports for summary and analysis.",
+              D: "Use the Gemini app to ask general financial trend questions."
+            },
+            ans: "A",
+            trans: "需分析冗长财务 PDF，提取 KPI，希望有一个能处理文档、生成摘要并“附带引用出处”的预构建 AI 工具。",
+            exp: "NotebookLM 是完全接地的个人研究助手，最大特色是附带引用 (Citations) 源材料。"
+          },
+          {
+            id: 30,
+            q: "A learning and development team wants to quickly create a new hire training video with a custom avatar and voiceover that matches their company’s branding and key messaging. They did not receive any money to spend on the production. What should they do?",
+            opts: {
+              A: "Generate the video frames with Imagen.",
+              B: "Create a video with Google Vids.",
+              C: "Train a model with Vertex AI and produce a video.",
+              D: "Prompt the Gemini app to create a video."
+            },
+            ans: "B",
+            trans: "需要零成本快速创建带虚拟形象和配音的培训视频。",
+            exp: "Google Vids 是 Workspace 生态中专门通过 AI 生成和编辑视频原型的应用。"
+          },
+          {
+            id: 31,
+            q: "What does Model Garden enable a company to do?",
+            opts: {
+              A: "Train new models from scratch using large datasets.",
+              B: "Evaluate the performance of different models using various metrics.",
+              C: "Discover, customize, and deploy existing models from Google and its partners.",
+              D: "Manage different versions of a model including the code, data, and parameters used to train it."
+            },
+            ans: "C",
+            trans: "Model Garden (模型中心) 能让企业做什么？",
+            exp: "发现、自定义和部署来自 Google 及其合作伙伴的现有模型。"
+          },
+          {
+            id: 32,
+            q: "A national bank is overwhelmed by customer inquiries across multiple channels and needs an AI-powered solution to provide seamless, consistent support, empower customer support agents, and improve service quality. What Google Cloud product should the bank use?",
+            opts: {
+              A: "Gemini for Google Workspace",
+              B: "Google Contact Center as a Service",
+              C: "Vertex AI Search",
+              D: "Gemini for Google Cloud"
+            },
+            ans: "B",
+            trans: "银行跨多渠道咨询应接不暇，需要提供无缝支持并赋能人工坐席的 AI 解决方案。",
+            exp: "CCaaS提供了全渠道客服支持和无缝集成 AI 智能体的底层联络中心架构。"
+          }
+        ]
+      },
+      {
+        title: "模块三：提示工程、RAG 与智能体应用",
+        questions: [
+          {
+            id: 1,
+            q: "What is a primary benefit of using a multi-agent system?",
+            opts: {
+              A: "To manage complex tasks that demand coordinated AI functions.",
+              B: "To serve as a platform for hosting traditional, non-AI applications.",
+              C: "To simplify the most basic and repetitive rule-based tasks.",
+              D: "To consolidate all unique AI functions into a single, undifferentiated model."
+            },
+            ans: "A",
+            trans: "使用多智能体系统 (multi-agent) 的主要好处是什么？",
+            exp: "多智能体通过模块化分工（各司其职）来共同完成单体智能体难以处理的复杂任务。"
+          },
+          {
+            id: 2,
+            q: "An organization wants to use generative AI to create a chatbot that can answer customer questions about their account balances. They need to ensure that the chatbot can access previous portions of the conversation with the customer. Which prompting technique should they use?",
+            opts: {
+              A: "Use prompt chaining.",
+              B: "Use zero-shot prompting.",
+              C: "Use role prompting.",
+              D: "Use few-shot prompting."
+            },
+            ans: "A",
+            trans: "需要确保聊天机器人能够访问之前的对话部分。应使用哪种提示技术？",
+            exp: "提示链 (Prompt Chaining) 在同一对话串中连续对话，让模型记住之前的上下文。"
+          },
+          {
+            id: 3,
+            q: "An organization wants to use generative AI to create a marketing campaign. They need to ensure that the AI model generates text that is appropriate for the target audience. What should the organization do?",
+            opts: {
+              A: "Use few-shot prompting.",
+              B: "Use role prompting.",
+              C: "Adjust the temperature parameter.",
+              D: "Use prompt chaining."
+            },
+            ans: "B",
+            trans: "确保生成的营销文本适合目标受众（特定的语气/视角）。应如何提示？",
+            exp: "给模型分配身份（如：你是一个资深品牌营销专家），从而掌控其输出风格。"
+          },
+          {
+            id: 4,
+            q: "A company wants to use generative AI to create a chatbot that can answer customer questions about their products and services. They need to ensure that the chatbot only uses information from the company’s official documentation. What should the company do?",
+            opts: {
+              A: "Use role prompting.",
+              B: "Use prompt chaining.",
+              C: "Use grounding.",
+              D: "Adjust temperature parameter."
+            },
+            ans: "C",
+            trans: "确保聊天机器人“仅使用”公司官方文档中的信息来回答。",
+            exp: "接地 (Grounding) / RAG 强制模型将其输出建立在可验证的特定来源上。"
+          },
+          {
+            id: 5,
+            q: "A social media platform uses a generative AI model to automatically generate summaries of user-submitted posts to provide quick overviews for other users. While the summaries are generally accurate for factual posts, the model occasionally misinterprets sarcasm, satire, or nuanced opinions, leading to summaries that misrepresent the original intent and potentially cause misunderstandings or offense among users. What should the platform do to overcome this limitation of the AI-generated summaries?",
+            opts: {
+              A: "Increase the temperature parameter of the model to encourage more varied and less literal interpretations.",
+              B: "Implement stricter safety settings to filter out potentially misinterpreted content altogether.",
+              C: "Incorporate a human-in-the-loop (HITL) review process to refine the summaries.",
+              D: "Decrease the output length of the summaries to make them more concise."
+            },
+            ans: "C",
+            trans: "模型偶尔会误解帖子的“反讽”和“讽刺”。应如何克服？",
+            exp: "整合“人机协同”(HITL) 审核流程以完善处理这种极其微妙和主观的情境。"
+          },
+          {
+            id: 6,
+            q: "A software development team wants to use generative AI (gen AI) to code faster so they can launch their software prototype quicker. What should the team do?",
+            opts: {
+              A: "Use gen AI to refactor and optimize existing code.",
+              B: "Use gen AI to automatically generate comprehensive documentation for their code.",
+              C: "Use gen AI to identify potential bugs and security vulnerabilities in their code.",
+              D: "Use gen AI to suggest code snippets and complete functions."
+            },
+            ans: "D",
+            trans: "开发团队希望使用 GenAI 加快编码速度。应该主要用它做什么？",
+            exp: "使用 GenAI 建议代码段和补全函数 (Code Completion)。"
+          },
+          {
+            id: 7,
+            q: "A development team is building an internal knowledge base chatbot to answer employee questions about company policies and procedures. This information is stored across various documents in Google Cloud Storage and is updated regularly by different departments. What is the primary benefit of using Google Cloud’s RAG APIs in this scenario?",
+            opts: {
+              A: "They provide a pre-built user interface for the chatbot, simplifying the front-end development process.",
+              B: "They automatically create summaries of all company policies, which are then presented to employees as quick answers.",
+              C: "They enable the generative AI model to retrieve the most up-to-date and relevant information from the policy documents in real-time.",
+              D: "They allow the development team to train a single foundation model on all company documents."
+            },
+            ans: "C",
+            trans: "内部知识库存储在云端且定期更新。在此场景中使用 RAG API 的主要好处是什么？",
+            exp: "使生成式 AI 模型能够实时从策略文档中检索最新和最相关的信息。"
+          },
+          {
+            id: 8,
+            q: "A company’s large learning model (LLM) is producing hallucinations that are a result of the knowledge cutoff. How does retrieval-augmented generation (RAG) overcome this limitation?",
+            opts: {
+              A: "RAG enhances the creative writing capabilities of the LLM to generate more engaging and informative responses.",
+              B: "RAG uses human oversight to ensure accuracy before presenting information to the customer.",
+              C: "RAG enables the LLM to retrieve relevant and up-to-date information from knowledge sources.",
+              D: "RAG fine-tunes the LLM on specific customer query patterns to improve the speed and efficiency of response generation."
+            },
+            ans: "C",
+            trans: "LLM由于“知识截止日期”产生幻觉。RAG 如何克服此限制？",
+            exp: "RAG 能够让 LLM 从外部知识源检索相关的、最新的信息补充进来作为上下文。"
+          },
+          {
+            id: 9,
+            q: "A global news agency is developing a generative AI tool to quickly summarize breaking news articles as they emerge online. The goal is to provide their audience with rapid updates on fast developing stories from various global sources. What Google Cloud solution should they use?",
+            opts: {
+              A: "Grounding with Google Search",
+              B: "Vertex AI Natural Language API",
+              C: "BigQuery",
+              D: "Document AI"
+            },
+            ans: "A",
+            trans: "机构需要快速总结在线发布的“突发新闻”。",
+            exp: "只有 Google 搜索接地能立刻获取全网秒级爆发的突发新闻事实。"
+          },
+          {
+            id: 10,
+            q: "A company is developing a conversational AI chatbot. They need to ensure the chatbot can engage in human-like conversations and provide accurate information. What should they do to enhance the chatbot’s ability to understand and respond effectively to user prompts?",
+            opts: {
+              A: "Lower model temperature setting to produce more consistent and predictable responses.",
+              B: "Use strict keyword matching to ensure that the chatbot only responds to specific commands.",
+              C: "Limit the chatbot’s training data to prevent it from learning irrelevant information.",
+              D: "Use prompt engineering techniques like few-shot prompting, to provide the chatbot with examples of successful interactions."
+            },
+            ans: "D",
+            trans: "增强聊天机器人进行类似人类对话的能力。",
+            exp: "使用少样本提示 (Few-shot) 等工程技术，为聊天机器人提供成功的互动示例以供参考模仿。"
+          },
+          {
+            id: 11,
+            q: "What does Vertex AI Search enable companies to do?",
+            opts: {
+              A: "To ground LLM responses with first-party data, third-party data and Google’s knowledge graph.",
+              B: "To surface the most popular and frequently accessed content based on global user search patterns and trends.",
+              C: "To index and retrieve information from the entire public web, providing a comprehensive view of publicly available data.",
+              D: "To compare products from numerous online retailers, allowing users to find the best deals and product options across the internet."
+            },
+            ans: "A",
+            trans: "Vertex AI Search 使公司能够做什么？",
+            exp: "利用第一方数据、第三方数据和 Google 知识图谱对 LLM 回答进行接地 (Grounding)。"
+          },
+          {
+            id: 12,
+            q: "A development team is configuring a generative AI model for a customer-facing application and wants to ensure the generated content is appropriate and harmless. What is the primary function of the safety settings parameter in a generative AI model?",
+            opts: {
+              A: "To filter out potentially harmful or inappropriate content from the model’s output based on the desired level of filtering.",
+              B: "To limit the maximum text length that the model generates by ensuring concise responses.",
+              C: "To determine the number of tokens the model can process at once by influencing the complexity and length of inputs and outputs.",
+              D: "To control the creativity and randomness of the model’s output by adjusting the diversity of word choices."
+            },
+            ans: "A",
+            trans: "安全设置 (Safety settings) 参数的主要功能是什么？",
+            exp: "根据所需的过滤级别从模型输出中过滤潜在有害或不当的内容。"
+          },
+          {
+            id: 13,
+            q: "A customer service team wants to use generative AI to improve the quality and consistency of their email responses to customer inquiries. They need a solution that can guide the AI to adopt a helpful, empathetic tone while adhering to company policies. Which prompting technique should they use?",
+            opts: {
+              A: "Role prompting that instructs the AI to act as an experienced customer service representative with corporate knowledge.",
+              B: "Few-shot prompting that provides examples of good and bad customer service emails.",
+              C: "Prompt chaining that engages the AI in a conversation to gather the necessary information before generating the email response.",
+              D: "One-shot prompting that provides a single example of a good customer service email."
+            },
+            ans: "A",
+            trans: "引导 AI 采用富有同理心的语气并遵守公司政策。",
+            exp: "指示 AI 充当经验丰富的客服代表的角色提示 (Role prompting)。"
+          },
+          {
+            id: 14,
+            q: "A company is developing a generative AI-powered customer support chatbot. They want to ensure the chatbot can answer a wide range of customer questions accurately, even those related to recently updated product information not present in the model’s original training data. What is a key benefit of implementing retrieval-augmented generation (RAG) in this chatbot?",
+            opts: {
+              A: "RAG will significantly reduce the computational resources required to run the generative AI model.",
+              B: "RAG will enable the chatbot to fine-tune its underlying language model on the fly based on customer interactions.",
+              C: "RAG will enable the chatbot to access and utilize external, up-to-date knowledge sources to provide more accurate and relevant answers.",
+              D: "RAG will primarily help the chatbot generate more creative and engaging conversational responses."
+            },
+            ans: "C",
+            trans: "确保即使针对训练数据中没有的最新产品信息，聊天机器人也能准确回答。RAG 的关键优势？",
+            exp: "RAG 能够访问利用外部最新知识源提供更准答案。"
+          },
+          {
+            id: 15,
+            q: "A team is using a generative AI model to automatically generate short summaries of customer feedback. They need to ensure that these summaries are concise and easy to digest. What model setting should they adjust?",
+            opts: {
+              A: "Temperature",
+              B: "Output length",
+              C: "Top-p (nucleus sampling)",
+              D: "Safety settings"
+            },
+            ans: "B",
+            trans: "确保生成的摘要简短、扼要。应调整哪个设置？",
+            exp: "Output length (输出长度 / Max Tokens) 用于控制模型生成内容的字数上限。"
+          },
+          {
+            id: 16,
+            q: "A company is using a language model to solve complex customer service inquiries. For a particular issue, the prompt includes the following instructions:\n“To address this customer’s problem, we should first identify the core issue they are experiencing. Then we need to check if there are any known solutions or workarounds in our knowledge base. If a solution exists, we should clearly explain it to the customer. If not, we might need to escalate the issue to a specialist. Following these steps will help us provide a comprehensive and helpful response. Now, given the customer’s message: ‘My order hasn’t arrived, and the tracking number shows no updates for a week,’ what should be the next step in resolving this?”\nWhat type of prompting is this?",
+            opts: {
+              A: "Few-shot",
+              B: "Chain-of-thought",
+              C: "Role-based",
+              D: "Zero-shot"
+            },
+            ans: "B",
+            trans: "提示中明确写道：“我们首先识别核心问题，然后检查知识库，最后进行解释...现在请给出下一步操作。” 这属于什么提示？",
+            exp: "要求模型将其推理过程按步骤拆解（Step-by-step），这是典型的思维链 (CoT) 提示。"
+          },
+          {
+            id: 17,
+            q: "A marketing team wants to use a generative AI model to create product descriptions for their new line of eco-friendly water bottles. They provide a brief prompt stating, “Write a product description for our new water bottle.” The model generates a generic, lackluster description that is factually accurate but lacks engaging language and doesn’t highlight the environmental benefits that are key to their brand. What should the marketing team do to overcome this limitation of the generated product description?",
+            opts: {
+              A: "Lower the temperature setting of the model to produce more consistent results.",
+              B: "Increase the token count for the model to allow for longer descriptions.",
+              C: "Add details to the prompt about the audience, tone, and keywords.",
+              D: "Train the model on a dataset of marketing materials from other eco-friendly brands."
+            },
+            ans: "C",
+            trans: "提示仅写了“写一个描述”，结果平淡乏味、未突出环保优势。如何克服？",
+            exp: "在提示中添加关于受众、语气和关键词的细节，让约束条件更丰富明确。"
+          },
+          {
+            id: 18,
+            q: "A global news company is using a large language model to automatically generate summaries of news articles for their website. The model’s summary of an international summit was accurate until it hallucinated by stating a detail that did not occur. How should the company overcome this hallucination?",
+            opts: {
+              A: "Fine-tune the model on a larger dataset of news articles.",
+              B: "Use grounding to base the model output on the source articles.",
+              C: "Implement stricter safety settings to filter out potentially controversial topics.",
+              D: "Increase the temperature setting of the model to encourage more diverse outputs."
+            },
+            ans: "B",
+            trans: "新闻模型产生幻觉，捏造了一个并未发生的新闻细节。如何克服？",
+            exp: "使用接地将模型输出建立在源文章之上，约束瞎编的可能性。"
+          }
+        ]
+      },
+      {
+        title: "模块四：企业 AI 战略与负责任的 AI",
+        questions: [
+          {
+            id: 1,
+            q: "A company is defining their generative AI strategy. They want to follow Google-recommended practices to increase their chances of success. Which strategy should they use?",
+            opts: {
+              A: "Bottom-up strategy",
+              B: "Rapid implementation strategy",
+              C: "Top-down strategy",
+              D: "Multi-directional strategy"
+            },
+            ans: "D",
+            trans: "定义 GenAI 战略，希望遵循 Google 推荐的最佳实践。应使用哪种战略？",
+            exp: "Google 推荐结合“自上而下的愿景支持”与“自下而上的员工采纳”，即多向协同 (Multi-directional)。"
+          },
+          {
+            id: 2,
+            q: "A retail company with a large online catalog wants to improve customer experience and drive sales by implementing multimodal search capabilities (image voice, and text). What is a primary business benefit of this capability?",
+            opts: {
+              A: "Reduced dependency on keyword optimization for product listings and improved search engine rankings.",
+              B: "Streamlined inventory management processes and more accurate demand forecasting for popular items.",
+              C: "Lowered operational costs associated with managing and updating product information across different platforms and channels.",
+              D: "Improved customer engagement and product discovery leading to increased satisfaction and potential sales."
+            },
+            ans: "D",
+            trans: "零售公司实现多模态搜索（图像、语音和文本）。主要业务优势是什么？",
+            exp: "改善客户参与度和产品发现率，从而提升满意度与潜在销量。"
+          },
+          {
+            id: 3,
+            q: "A financial institution uses generative AI (gen AI) to approve and reject loan applications, but gives no reasons for rejection. Customers are starting to file complaints. The company needs to implement a solution to reduce the complaints. What should the company do?",
+            opts: {
+              A: "Fine-tune the gen AI model.",
+              B: "Collect a larger and more diverse dataset for the gen AI model.",
+              C: "Implement explainable gen AI policies.",
+              D: "Develop fairness assessments for the gen AI model."
+            },
+            ans: "C",
+            trans: "使用 GenAI 拒绝贷款但不给出原因导致投诉。如何解决？",
+            exp: "在金融等高风险场景，做出的决策必须具有透明度和可解释性 (Explainability)。"
+          },
+          {
+            id: 4,
+            q: "A human resources team is implementing a new generative AI application to assist the department in screening a large volume of job applications. They want to ensure fairness and build trust with potential candidates. What should the team prioritize?",
+            opts: {
+              A: "Integrating the AI application with various job boards to maximize candidate reach.",
+              B: "Focusing on minimizing the processing time for each application to improve efficiency.",
+              C: "Ensuring AI operates transparently, especially regarding application evaluation and data usage.",
+              D: "Ensuring that the AI application can automatically rank all candidates without requiring human review."
+            },
+            ans: "C",
+            trans: "HR 团队使用 AI 筛选简历。为确保公平并建立信任，应优先考虑什么？",
+            exp: "确保 AI 透明运作，尤其是关于评估和数据使用方面 (Transparency & Fairness)。"
+          },
+          {
+            id: 5,
+            q: "According to Google-recommended practices, when should generative AI be used to automate tasks?",
+            opts: {
+              A: "When tasks are highly creative and require original thought.",
+              B: "When tasks are complex and require strategic decision-making.",
+              C: "When tasks are repetitive and rule-based.",
+              D: "When tasks involve sensitive information or require human oversight."
+            },
+            ans: "C",
+            trans: "生成式 AI 应该在什么时候用于“自动化 (Automate)”任务？",
+            exp: "对于创造性或战略性决策任务，AI 应该用于“增强 (Augment)”，而重复规则性任务适合“完全自动化 (Automate)”。"
+          },
+          {
+            id: 6,
+            q: "A company wants to choose a generative AI (gen AI) use case that will be successful and have the most impact. What Key factor should they determine first according to Google Cloud- recommended practices?",
+            opts: {
+              A: "The number of employees who will be trained to use the new gen AI tools.",
+              B: "The availability of pre-trained models that are offered on various cloud computing platforms.",
+              C: "The frequency of updates to the underlying foundation models used by different gen AI platforms.",
+              D: "The specific business problems the company aims to solve and the desired outcomes."
+            },
+            ans: "D",
+            trans: "选择最具影响力的 GenAI 用例。首先应确定哪个关键因素？",
+            exp: "任何 AI 落地必须“以业务为导向 (Business-led)”，先找痛点，再选技术。"
+          },
+          {
+            id: 7,
+            q: "A sales manager wants to responsibly use generative AI (gen AI) to increase efficiency with their existing tasks. They want to allow the sales team to focus on building customer relationships and closing deals. How should the sales team use gen AI?",
+            opts: {
+              A: "To automate creative content like blog posts and social media updates to attract new leads.",
+              B: "To draft emails and provide real-time insights about customer needs.",
+              C: "To analyze customer interactions on social media and automatically generate sales pitches tailored to their public profiles.",
+              D: "To replace the sales team’s CRM system with a more intuitive and user-friendly interface."
+            },
+            ans: "B",
+            trans: "销售经理希望利用 GenAI 提高效率，让团队专注建立客户关系。具体可以用它做什么？",
+            exp: "起草电子邮件并提供有关客户需求的实时洞见（典型的增强而非取代人类建立关系）。"
+          },
+          {
+            id: 8,
+            q: "A home loan company is deploying a generative AI system to automate initial loan application reviews. Several applicants have been unexpectedly rejected, leading to customer complaints and potential bias concerns. They need to ensure responsible and fair lending practices. What aspect of the AI system should they prioritize?",
+            opts: {
+              A: "Implementing stricter data security measures to protect applicants’ financial information from unauthorized access.",
+              B: "Regularly updating the AI model with more financial data to improve its accuracy over time.",
+              C: "Increasing the speed at which the AI system processes loan applications to handle the high volume.",
+              D: "Ensuring AI decision-making is explainable to understand decision reasons and establish accountability."
+            },
+            ans: "D",
+            trans: "自动化房贷审批导致意外拒绝，引发偏见担忧。为确保公平贷款，需优先考虑？",
+            exp: "确保 AI 决策可解释，以了解原因并确立问责制 (Explainability & Accountability)。"
+          },
+          {
+            id: 9,
+            q: "A large company is creating their generative AI (gen AI) solution by using Google Cloud’s offerings. They want to ensure that their mid-level managers contribute to a successful gen AI rollout by following Google-recommended practices. What should the mid-level managers do?",
+            opts: {
+              A: "Secure funding and resources for AI initiatives by demonstrating the potential return on investment to the chief financial officer (CFO).",
+              B: "Create a robust data strategy to ensure teams can access high-quality, relevant data that is appropriate for training and fine-tuning gen AI models.",
+              C: "Perform continuous testing, measurement and refinement based on user feedback and real-world performance data.",
+              D: "Drive gen AI adoption by identifying high-impact, feasible solutions that address specific challenges within their workflows."
+            },
+            ans: "D",
+            trans: "为确保中层管理者为 GenAI 推出的成功做出贡献，他们应该做什么？",
+            exp: "中层管理最贴近业务流程，他们的核心角色是结合痛点筛选“高性价比”的创新创意并推动落地。"
+          }
+        ]
+      }
+    ];
+
+    // --- 单题卡片组件 ---
+    function QuestionCard({ question, index }) {
+      const [selectedOption, setSelectedOption] = useState(null);
+      const [showResult, setShowResult] = useState(false);
+
+      const handleCheck = () => {
+        if (selectedOption) {
+          setShowResult(true);
+        }
+      };
+
+      const getOptionClass = (key) => {
+        let baseClass = "p-4 border rounded-xl mb-3 cursor-pointer transition-all duration-200 flex items-start gap-3 ";
+        
+        if (!showResult) {
+          if (selectedOption === key) {
+            baseClass += "border-blue-500 bg-blue-50 ring-2 ring-blue-200";
+          } else {
+            baseClass += "border-gray-200 hover:border-blue-300 hover:bg-gray-50";
+          }
+        } else {
+          if (key === question.ans) {
+            baseClass += "border-green-500 bg-green-50 text-green-900 ring-2 ring-green-200";
+          } else if (selectedOption === key && key !== question.ans) {
+            baseClass += "border-red-500 bg-red-50 text-red-900";
+          } else {
+            baseClass += "border-gray-100 bg-gray-50 text-gray-400 opacity-60";
+          }
+          baseClass += " cursor-default";
+        }
+        return baseClass;
+      };
+
+      return (
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-8 hover:shadow-md transition-shadow">
+          <h3 className="text-lg font-medium text-gray-800 mb-5 leading-relaxed whitespace-pre-wrap">
+            <span className="inline-block bg-blue-100 text-blue-700 font-bold px-3 py-1 rounded-lg text-sm mr-3">
+              Q{index + 1}
+            </span>
+            {question.q}
+          </h3>
+
+          <div className="space-y-2 mb-6">
+            {Object.entries(question.opts).map(([key, text]) => (
+              <div 
+                key={key} 
+                className={getOptionClass(key)}
+                onClick={() => !showResult && setSelectedOption(key)}
+              >
+                <div className={`mt-0.5 w-6 h-6 shrink-0 rounded-full border-2 flex items-center justify-center font-bold text-sm
+                  ${showResult && key === question.ans ? 'border-green-500 bg-green-500 text-white' : 
+                    showResult && selectedOption === key ? 'border-red-500 bg-red-500 text-white' :
+                    selectedOption === key ? 'border-blue-500 bg-blue-500 text-white' : 'border-gray-300 text-gray-500'}`}
+                >
+                  {key}
+                </div>
+                <div className="leading-relaxed flex-1">
+                  {text}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {!showResult ? (
+            <button 
+              onClick={handleCheck}
+              disabled={!selectedOption}
+              className={`w-full py-3 rounded-xl font-medium transition-colors ${
+                selectedOption 
+                  ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-sm' 
+                  : 'bg-gray-100 text-gray-400 cursor-not-allowed'
+              }`}
+            >
+              Check Answer / 确认答案
+            </button>
+          ) : (
+            <div className="mt-6 pt-6 border-t border-gray-100 animate-fade-in-up">
+              <div className="flex items-center gap-2 mb-4">
+                {selectedOption === question.ans ? (
+                  <div className="bg-green-100 text-green-700 px-4 py-2 rounded-lg font-bold flex items-center gap-2">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path></svg>
+                    回答正确 (Correct)
+                  </div>
+                ) : (
+                  <div className="bg-red-100 text-red-700 px-4 py-2 rounded-lg font-bold flex items-center gap-2">
+                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd"></path></svg>
+                    回答错误 (Incorrect)
+                  </div>
+                )}
+              </div>
+
+              <div className="bg-blue-50/50 rounded-xl p-5 space-y-4 text-sm text-gray-700 border border-blue-100/50">
+                 <div>
+                    <h4 className="font-bold text-gray-900 flex items-center gap-2 mb-1">
+                       <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                       中文翻译
+                    </h4>
+                    <p className="whitespace-pre-line leading-relaxed text-gray-600">
+                      {question.trans}
+                    </p>
+                 </div>
+                 <div className="pt-3 border-t border-blue-100">
+                    <h4 className="font-bold text-gray-900 flex items-center gap-2 mb-1">
+                      <svg className="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                      考点解析
+                    </h4>
+                    <p className="leading-relaxed text-gray-800 font-medium">
+                      {question.exp}
+                    </p>
+                 </div>
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    // --- 免责声明组件 ---
+    function Disclaimer() {
+      const [isOpen, setIsOpen] = useState(true);
+
+      if (!isOpen) return null;
+
+      return (
+        <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-8 shadow-sm relative animate-fade-in text-amber-900">
+          <button 
+            onClick={() => setIsOpen(false)}
+            className="absolute top-4 right-4 text-amber-600 hover:text-amber-800 hover:bg-amber-100 p-1 rounded-lg transition-colors"
+            title="关闭说明"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+          
+          <h3 className="font-bold text-lg mb-3 flex items-center gap-2 text-amber-800">
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd"></path></svg>
+            免责声明 (Disclaimer)
+          </h3>
+          <div className="text-sm space-y-2 opacity-90">
+            <p><strong>1. 非官方声明：</strong>本项目（Study Guide for Google Cloud Generative AI Leader Certification）是由社区贡献者/个人整理的学习资料，并非 Google Cloud 官方发布的认证指南或培训教材。本项目与 Google 官方无任何隶属或背书关系。</p>
+            <p><strong>2. 内容时效性：</strong>生成式 AI 领域及 Google Cloud 产品迭代极其迅速，本项目所包含的信息（包括但不限于产品功能、参数设置、服务名称及考试大纲）可能随时间推移而变得过时。建议在备考时，始终以 Google Cloud 官方文档 及最新的官方认证说明为准。</p>
+            <p><strong>3. 不保证考试结果：</strong>本项目旨在辅助考生梳理知识框架、提升备考效率。使用指南中的任何资料（包括速查表和官方速记）不代表、也不保证考生一定能通过 Google Cloud Generative AI Leader 认证考试。</p>
+            <p><strong>4. 风险自担：</strong>用户在实际业务场景中引用本指南提供的架构、策略或建议时，需自行评估相关风险及成本。本项目作者及贡献者对因使用本资料而产生的任何直接或间接后果不承担任何责任。</p>
+            <p><strong>5. 商标与版权：</strong>文中提及的“Google Cloud”、“Gemini”、“Vertex AI”等词汇及相关标志均为 Google LLC 的商标或注册商标。本指南中引用的官方图片或部分摘录内容，其版权归原权利人所有。</p>
+          </div>
+        </div>
+      );
+    }
+
+    // --- 主应用组件 ---
+    function App() {
+      const [activeModuleIdx, setActiveModuleIdx] = useState(0);
+      const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+      // --- 新增：插入水印代码 ---
+      useEffect(() => {
+        // 1. 控制台定制打印水印 (只有打开 F12 的人才能看到)
+        console.log(
+          "%c 版权所有 © 微信公众号sekkoo的知识星球. 盗版必究.",
+          "color: #4f46e5; font-size: 12px; font-weight: bold; font-family: sans-serif; padding: 4px; border: 1px solid #4f46e5; border-radius: 4px;"
+        );
+
+        // 2. 挂载到 window 对象的深度隐藏属性 (通过常规遍历无法发现)
+        if (!window.hasOwnProperty('_appWatermark')) {
+          Object.defineProperty(window, '_appWatermark', {
+            value: 'Created by [微信公众号sekkoo的知识星球] - Unauthorized use is monitored.',
+            writable: false,
+            enumerable: false, // 设为不可枚举
+            configurable: false
+          });
+        }
+      }, []);
+
+      const activeModule = quizData[activeModuleIdx];
+
+      return (
+        <div className="min-h-screen flex flex-col md:flex-row font-sans text-gray-800 selection:bg-blue-200">
+          
+          <div className="md:hidden bg-white border-b border-gray-200 p-4 flex justify-between items-center sticky top-0 z-20 shadow-sm">
+            <h1 className="font-bold text-lg text-blue-900 truncate pr-4">Google AI 备考</h1>
+            <button 
+              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+              className="p-2 bg-gray-100 rounded-lg text-gray-600 hover:bg-gray-200"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isSidebarOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}></path></svg>
+            </button>
+          </div>
+
+          <aside className={`
+            ${isSidebarOpen ? 'block' : 'hidden'} md:block 
+            w-full md:w-80 lg:w-96 bg-white border-r border-gray-200 flex-shrink-0 flex flex-col
+            fixed md:sticky top-[73px] md:top-0 h-[calc(100vh-73px)] md:h-screen z-10 overflow-y-auto shadow-xl md:shadow-none transition-transform
+          `}>
+            <div className="p-6">
+              <div className="hidden md:block mb-8">
+                <h1 className="text-2xl font-black text-blue-900 tracking-tight">GenAI <span className="text-blue-500">Practice</span></h1>
+                <p className="text-sm text-gray-500 mt-1">Google Cloud 考证刷题系统</p>
+              </div>
+              
+              <nav className="space-y-3">
+                {quizData.map((mod, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => {
+                      setActiveModuleIdx(idx);
+                      setIsSidebarOpen(false);
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className={`w-full text-left p-4 rounded-xl transition-all duration-200 border ${
+                      activeModuleIdx === idx 
+                        ? 'bg-blue-600 text-white border-blue-600 shadow-md transform scale-[1.02]' 
+                        : 'bg-white text-gray-600 border-gray-100 hover:border-blue-200 hover:bg-blue-50'
+                    }`}
+                  >
+                    <div className="text-xs font-bold uppercase tracking-wider mb-1 opacity-80">Module {idx + 1}</div>
+                    <div className="font-medium line-clamp-2 leading-tight">
+                      {mod.title.split(' (')[0]}
+                    </div>
+                    <div className="text-xs mt-3 flex items-center gap-1 opacity-80">
+                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+                       {mod.questions.length} Questions
+                    </div>
+                  </button>
+                ))}
+              </nav>
+            </div>
+          </aside>
+
+          <main className="flex-1 max-w-4xl mx-auto w-full p-4 md:p-8 lg:p-12 overflow-x-hidden">
+            
+            <Disclaimer />
+
+            <div className="mb-8 md:mb-10 animate-fade-in">
+              <div className="inline-block bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wide">
+                Module {activeModuleIdx + 1}
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-snug">
+                {activeModule.title}
+              </h2>
+              <p className="text-gray-500 mt-2">
+                共 {activeModule.questions.length} 道题目，认真阅读英文原题后作答。
+              </p>
+            </div>
+
+            <div className="space-y-6">
+              {activeModule.questions.map((q, idx) => (
+                <QuestionCard key={`${activeModuleIdx}-${q.id}`} question={q} index={idx} />
+              ))}
+            </div>
+
+            <div className="mt-12 text-center text-gray-400 text-sm pb-8">
+              <p>End of Module {activeModuleIdx + 1}</p>
+            </div>
+          </main>
+        </div>
+      );
+    }
+
+    // --- 渲染到 DOM ---
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
