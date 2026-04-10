@@ -44,6 +44,9 @@
     .animate-fade-in {
       animation: fadeIn 0.5s ease-out forwards;
     }
+    .whitespace-pre-line {
+      white-space: pre-line;
+    }
   </style>
 </head>
 <body class="bg-slate-50">
@@ -58,7 +61,7 @@
   <script type="text/babel">
     const { useState, useEffect } = React;
 
-    // --- 数据结构 ---
+    // --- 数据结构 (完整选项、全量翻译、详细解析) ---
     const quizData = [
       {
         title: "模块一：生成式 AI 基础与机器学习概念",
@@ -73,8 +76,8 @@
               D: "A type of artificial intelligence that enables a system to autonomously learn and improve using neural networks and deep learning."
             },
             ans: "B",
-            trans: "生成式 AI 的定义是什么？\n(A.通过拟合观测数据估算关系的预测模型; B.能创造文本、图像、音乐和代码等新内容的人工智能; C.受人脑启发的节点互连算法; D.使用神经网络自主学习的系统。)",
-            exp: "考查 GenAI 核心定义，区别于传统预测型 AI，生成式 AI 的核心是“创造新内容”。"
+            trans: "生成式 AI 的定义是什么？\nA. 一种通过拟合观测数据估算关系的预测模型。\nB. 一种可以创造新内容和想法（包括文本、图像、音乐和代码）的人工智能。\nC. 一种受人脑启发的、由相互连接的节点组成的机器学习算法。\nD. 一种使系统能够使用神经网络和深度学习自主学习和改进的人工智能。",
+            exp: "考查生成式 AI 的核心定义。与传统的分析型或预测型 AI 不同，生成式 AI (Generative AI) 的本质特征是“创造新内容 (create new content)”。"
           },
           {
             id: 2,
@@ -86,8 +89,8 @@
               D: "To analyze situations, use multiple tools, and make informed decisions without requiring constant human input."
             },
             ans: "D",
-            trans: "在生成式 AI 语境下，AI 智能体的功能是什么？\n(A.提供计算资源; B.存储和管理大型数据集; C.提供用户界面; D.分析情况、使用多种工具并在无需人类持续输入的情况下做出明智决策。)",
-            exp: "考查智能体 (Agent) 的作用，智能体具备自主规划、调用工具和决策的能力。"
+            trans: "在生成式 AI 语境下，AI 智能体 (Agent) 的功能是什么？\nA. 提供训练和运行生成式 AI 模型所需的计算资源。\nB. 存储和管理用于训练和运行生成式 AI 模型的大型数据集。\nC. 提供用于与生成式 AI 模型交互的用户友好界面。\nD. 分析情况、使用多种工具，并在不需要人类持续输入的情况下做出明智的决策。",
+            exp: "考查智能体 (Agent) 的作用。Agent 具备自主规划、调用外部工具（API/搜索等）和多步决策的能力，能够自主完成复杂任务。"
           },
           {
             id: 3,
@@ -99,8 +102,8 @@
               D: "A static component of a gen AI application that provides information to the user."
             },
             ans: "A",
-            trans: "AI 智能体的定义是什么？\n(A.一个根据输入和可用工具学习如何实现目标的应用; B.监督应用的人类专家; C.一种用户界面; D.应用的静态组件。)",
-            exp: "智能体不仅是模型，还是结合了推理循环和外部工具的应用系统。"
+            trans: "AI 智能体的定义是什么？\nA. 一个根据输入和可用工具学习如何实现目标的应用。\nB. 监督和管理生成式 AI 应用运行的人类专家。\nC. 一种允许用户与生成式 AI 应用交互的用户界面。\nD. 生成式 AI 应用中向用户提供信息的静态组件。",
+            exp: "智能体 (Agent) 不仅仅是一个大模型，它是一个能够利用可用工具、根据输入自主学习并实现特定目标的“应用系统”。"
           },
           {
             id: 4,
@@ -112,8 +115,8 @@
               D: "Deep learning"
             },
             ans: "B",
-            trans: "公司正在为电子游戏开发 AI 角色，通过试错（得分/扣分）来学习。应使用哪种机器学习？\n(A.无监督学习; B.强化学习; C.监督学习; D.深度学习。)",
-            exp: "通过奖励和惩罚（正负反馈）进行试错学习是强化学习（Reinforcement Learning）的典型特征。"
+            trans: "公司正在为电子游戏开发 AI 角色。当 AI 采取带来积极结果的行动时会获得正分；采取带来消极结果的行动时会获得负分。通过这种“试错”过程，AI 逐渐提高玩游戏的能力。应使用哪种机器学习？\nA. 无监督学习\nB. 强化学习\nC. 监督学习\nD. 深度学习",
+            exp: "通过奖励 (正分) 和惩罚 (负分) 进行试错学习 (trial and error) 是强化学习（Reinforcement Learning）的典型特征。"
           },
           {
             id: 5,
@@ -125,8 +128,8 @@
               D: "Unsupervised learning"
             },
             ans: "D",
-            trans: "研究团队收集了大量传感器数据，尚未分配任何标签或类别，希望基于数据发现异常或自然分组。应使用哪种机器学习？\n(A.深度学习; B.强化学习; C.监督学习; D.无监督学习。)",
-            exp: "处理“未标记 (unlabeled)”数据并寻找隐藏的模式或自然分组，属于无监督学习。"
+            trans: "研究团队收集了大量传感器读数（无任何标签或类别），希望仅基于这些数据识别潜在异常、故障或机器行为的“自然分组”。应使用哪种机器学习？\nA. 深度学习\nB. 强化学习\nC. 监督学习\nD. 无监督学习",
+            exp: "处理“未标记 (unlabeled)”数据并寻找数据中的隐藏模式或“自然分组 (natural groupings/clustering)”，属于无监督学习的核心应用场景。"
           },
           {
             id: 6,
@@ -138,8 +141,8 @@
               D: "Gemini cannot integrate with required financial databases."
             },
             ans: "B",
-            trans: "金融机构希望使用 Gemini 作为一个基于严格预定义标准来“确定性”批准/拒绝贷款的核心决策引擎。为何这不合适？\n(A.太昂贵复杂; B.Gemini 专为灵活的内容生成和推理设计，不适合死板的基于规则的决策; C.无法处理数值数据; D.无法集成数据库。)",
-            exp: "生成式 AI 具有创造性和概率性，不适合需要100%确定性和严格死规则的决策任务（如信贷刚性审批）。"
+            trans: "金融机构希望使用 Gemini 作为核心决策引擎，基于严格的预定义标准“确定性地”批准或拒绝贷款申请。为何这不合适？\nA. 该场景下部署 Gemini 过于昂贵和复杂。\nB. Gemini 专为灵活的内容生成和推理而设计，不适合死板的、基于规则的决策。\nC. Gemini 不具备处理金融评估所需的结构化数值数据的能力。\nD. Gemini 无法与所需的金融数据库集成。",
+            exp: "大语言模型（如 Gemini）具有概率性和创造性，不适合需要 100% 确定性和基于严格死规则的合规/决策任务（如信贷刚性审批）。"
           },
           {
             id: 7,
@@ -151,8 +154,8 @@
               D: "Forecasting sales figures using historical sales and marketing spend."
             },
             ans: "C",
-            trans: "无监督机器学习的例子是什么？\n(A.基于历史续订数据预测续订; B.使用带标签的类别训练系统; C.分析客户购买模式以识别自然分组; D.预测销售数据。)",
-            exp: "“自然分组 (Natural groupings/Clustering)”是无监督学习最典型的应用。"
+            trans: "以下哪个是无监督机器学习的例子？\nA. 基于过去的续订状态数据预测订阅续订。\nB. 使用带标签的类别训练系统以识别产品图像。\nC. 分析客户购买模式以识别自然分组。\nD. 使用历史销售和营销支出预测销售数据。",
+            exp: "“识别自然分组 (Natural groupings/Clustering)”是无监督学习最典型的应用。A、B、D 均依赖历史标签或明确的数值目标，属于监督学习。"
           },
           {
             id: 8,
@@ -164,8 +167,8 @@
               D: "Data dependency"
             },
             ans: "B",
-            trans: "用户询问科幻电影的科学准确性。模型自信地将虚构理论作为事实陈述。这是哪种模型局限性？\n(A.偏见; B.幻觉; C.知识截止; D.数据依赖。)",
-            exp: "幻觉 (Hallucination) 是指大模型一本正经地胡说八道，将虚构信息当成事实输出。"
+            trans: "用户询问科幻电影的科学准确性。模型自信地将虚构理论作为事实陈述，且不指明其来源于虚构作品。这是哪种模型局限性？\nA. 偏见 (Bias)\nB. 幻觉 (Hallucination)\nC. 知识截止日期 (Knowledge cutoff)\nD. 数据依赖性 (Data dependency)",
+            exp: "幻觉 (Hallucination) 是指大模型“一本正经地胡说八道”，将虚构信息或不存在的理论当成真实事实输出。"
           },
           {
             id: 9,
@@ -177,8 +180,8 @@
               D: "Optimizes business processes and resource allocation."
             },
             ans: "A",
-            trans: "扩散模型 (Diffusion model) 的作用是什么？\n(A.通过将噪声细化为结构化数据来生成高质量内容; B.促进数据存储; C.分析数据并预测趋势; D.优化业务流程。)",
-            exp: "扩散模型（如 Imagen）的工作原理是从纯噪声开始，逐步去噪生成高保真图像。"
+            trans: "扩散模型 (Diffusion model) 的作用是什么？\nA. 通过将噪声细化为结构化数据来生成高质量内容。\nB. 促进结构化数据的存储和管理。\nC. 分析数据并预测未来趋势和模式。\nD. 优化业务流程和资源分配。",
+            exp: "扩散模型（如 Imagen / Midjourney 的底层技术）的工作原理是从纯噪声开始，通过逐步去噪（refining noise）来生成高保真图像等内容。"
           },
           {
             id: 10,
@@ -190,8 +193,8 @@
               D: "Implementing access controls and protecting sensitive information within the training data."
             },
             ans: "D",
-            trans: "组织正在收集数据训练客服AI，希望在ML生命周期内确保安全。此阶段的关键考虑是什么？\n(A.打补丁; B.监控性能; C.建立伦理准则; D.实施访问控制并保护训练数据中的敏感信息。)",
-            exp: "在“数据收集”阶段，最重要的安全合规工作是保护 PII（敏感个人信息）并设置访问权限。"
+            trans: "组织正在收集数据以训练客服生成式 AI 模型。他们希望在整个 ML 生命周期中确保安全。在此阶段（数据收集），关键的考虑因素是什么？\nA. 定期将最新的软件补丁应用到 AI 模型。\nB. 监控 AI 模型的性能以防意外输出和潜在错误。\nC. 建立 AI 模型响应的伦理准则，确保公平并避免伤害。\nD. 实施访问控制并保护训练数据中的敏感信息。",
+            exp: "在“数据收集和准备”阶段，最重要的安全和合规工作是保护 PII（敏感个人信息）并实施严格的访问控制。"
           },
           {
             id: 11,
@@ -203,8 +206,8 @@
               D: "Overfitting"
             },
             ans: "B",
-            trans: "用于对客户反馈分类的模型，由于训练数据人口统计分布不均且语言过时，部署后显示出强烈偏见。这属于哪种局限性？\n(A.边缘情况; B.数据依赖; C.幻觉; D.过拟合。)",
-            exp: "AI 的输出质量高度依赖于它被喂养的训练数据 (Garbage in, garbage out)，这是数据依赖性。"
+            trans: "由于训练数据集人口统计分布不均且语言规范过时，部署后的模型对新反馈显示出强烈偏见，误分类特定群体的评论。这属于哪种模型局限性？\nA. 边缘情况 (Edge case)\nB. 数据依赖性 (Data dependency)\nC. 幻觉 (Hallucination)\nD. 过拟合 (Overfitting)",
+            exp: "AI 的输出质量和行为高度依赖于它被喂养的训练数据 (Garbage in, garbage out)，这是数据依赖性造成的偏见问题。"
           },
           {
             id: 12,
@@ -216,8 +219,8 @@
               D: "Supervised learning"
             },
             ans: "D",
-            trans: "公司要分类客户评论。收集了数据集，每条评论都已被手动打上了标签。应该使用哪种机器学习？\n(A.强化学习; B.深度学习; C.无监督学习; D.监督学习。)",
-            exp: "只要数据集包含了手动标记的标签 (labeled data)，就是监督学习。"
+            trans: "公司收集了数千条客户评论，且每条评论都已被手动打上了相应的情感标签（积极、消极或中立）。公司应该使用哪种机器学习？\nA. 强化学习\nB. 深度学习\nC. 无监督学习\nD. 监督学习",
+            exp: "只要用于训练的数据集包含了清晰的“人工标记的标签 (manually tagged/labeled data)”，就属于监督学习的应用范畴。"
           },
           {
             id: 13,
@@ -229,8 +232,8 @@
               D: "A workflow agent"
             },
             ans: "D",
-            trans: "一个智能体能够自动处理订单、更新库存、发送通知并处理退货。这是哪种类型的智能体？\n(A.对话智能体; B.客服智能体; C.员工生产力智能体; D.工作流智能体。)",
-            exp: "负责在后台自主执行复杂业务流程（如订单处理、库存更新）的智能体属于工作流智能体 (Workflow Agent)。"
+            trans: "一个订单履行团队拥有一个能够自动处理订单、更新库存、发送运输通知并处理退货的智能体。这是哪种类型的智能体？\nA. 对话智能体\nB. 客服智能体\nC. 员工生产力智能体\nD. 工作流智能体",
+            exp: "负责在后台串联、自动化执行复杂业务流程（如订单处理、库存更新这种跨系统的流程）的智能体，属于工作流智能体 (Workflow Agent)。"
           },
           {
             id: 14,
@@ -242,8 +245,8 @@
               D: "Applying data anonymization techniques to remove or obscure sensitive data."
             },
             ans: "D",
-            trans: "分析客户反馈的生成式AI包含个人身份信息 (PII)。训练前需缓解风险。应优先采取什么行动？\n(A.仅收集定量数据; B.实施访问控制; C.确保数据集庞大; D.应用数据匿名化技术来删除或模糊敏感数据。)",
-            exp: "为了在训练中使用数据且不泄露隐私，必须优先进行数据匿名化 (Anonymization) / 脱敏处理。"
+            trans: "在线调查的反馈数据包含个人身份信息 (PII)。利益相关者担心隐私风险，在训练 AI 模型之前需要缓解这些风险。公司应优先采取什么行动？\nA. 在未来的调查中专注于仅收集定量反馈数据。\nB. 实施强大的访问控制，限制哪些团队可以查看原始调查数据。\nC. 确保 AI 模型在大型多样化的数据集上进行训练。\nD. 应用数据匿名化技术来删除或模糊敏感数据。",
+            exp: "为了既能在训练中使用这些数据，又不会将个人隐私暴露给大模型，最根本的做法是优先进行数据匿名化 (Anonymization) / 脱敏处理。"
           },
           {
             id: 15,
@@ -255,8 +258,8 @@
               D: "Unstructured data"
             },
             ans: "D",
-            trans: "通过开放式调查问题收集客户反馈，客户可以用自己的话详细作答。这是哪种类型的数据？\n(A.定量数据; B.结构化数据; C.标记数据; D.非结构化数据。)",
-            exp: "自由格式的文本（自由回答的调查）属于非结构化数据。"
+            trans: "通过开放式调查问题收集反馈，客户可以用自己的话详细作答（如一段文本评论）。这是哪种类型的数据？\nA. 定量数据\nB. 结构化数据\nC. 标记数据\nD. 非结构化数据",
+            exp: "自由格式的文本、评论、音频、视频等无法用标准行列表格衡量的数据，均属于非结构化数据 (Unstructured data)。"
           },
           {
             id: 16,
@@ -268,8 +271,8 @@
               D: "Pre-trained models"
             },
             ans: "B",
-            trans: "生成式 AI 环境中基础设施层的核心硬件组件是什么？\n(A.用户界面; B.TPU 和 GPU; C.工具和服务; D.预训练模型。)",
-            exp: "AI 基础设施层的物理底座是提供算力的硬件，即 GPU 和 Google 的 TPU。"
+            trans: "生成式 AI 技术栈中，基础设施层 (infrastructure layer) 的核心硬件组件是什么？\nA. 用户界面\nB. TPU 和 GPU\nC. 用于构建 AI 模型的工具和服务\nD. 预训练模型",
+            exp: "AI 基础设施层的最底层物理底座是提供算力的硬件，即 GPU（图形处理单元）和 Google 定制的 TPU（张量处理单元）。"
           }
         ]
       },
@@ -286,8 +289,8 @@
               D: "Google Cloud provides tools such as Pub/Sub, Cloud Storage, and Cloud SQL."
             },
             ans: "D",
-            trans: "机器学习项目涉及流数据和结构化数据库等多类数据。Google Cloud 如何支持数据收集？\n(D.提供 Pub/Sub、Cloud Storage 和 Cloud SQL 等工具。)",
-            exp: "Google Cloud 提供全面的数据摄取与存储套件，Pub/Sub 用于流数据，Cloud Storage 用于非结构化数据，Cloud SQL 用于结构化数据。"
+            trans: "一个机器学习项目涉及流数据和结构化数据库等多类数据。Google Cloud 如何支持该项目的数据收集？\nA. Google Cloud 的优势在于像 BigQuery 这样的数据分析工具。\nB. Gemini 应用程序是 Google Cloud 直接收集数据的主要工具。\nC. Google Cloud 依赖 Vertex AI 连接到外部数据。\nD. Google Cloud 提供诸如 Pub/Sub、Cloud Storage 和 Cloud SQL 等工具。",
+            exp: "Google Cloud 提供全面的数据摄取与存储套件：Pub/Sub 处理流数据，Cloud Storage 处理非结构化数据，Cloud SQL 处理关系型结构化数据。"
           },
           {
             id: 2,
@@ -299,8 +302,8 @@
               D: "Code agent"
             },
             ans: "B",
-            trans: "CISO (首席信息安全官) 办公室希望用 GenAI 自动化总结案件、研究威胁等任务。应使用哪种智能体？",
-            exp: "Gemini in Security（安全智能体）专为威胁情报、案例总结等安全分析场景打造。"
+            trans: "CISO (首席信息安全官) 办公室希望用 GenAI 自动化总结案件、研究威胁、创建检测规则等任务。他们应使用哪种智能体？\nA. 数据智能体\nB. 安全智能体\nC. 客服智能体\nD. 代码智能体",
+            exp: "Gemini in Security（安全智能体）专为威胁情报、安全左移、案例总结等安全运营 (SecOps) 场景量身打造。"
           },
           {
             id: 3,
@@ -312,8 +315,8 @@
               D: "Dataflow"
             },
             ans: "A",
-            trans: "公司收到大量 PDF 和扫描版贷款申请，需要自动化提取关键数据。应使用哪个 Google Cloud 工具？",
-            exp: "从发票、合同、表单等非结构化文档或扫描件中自动提取结构化数据，是 Document AI 的核心功能。"
+            trans: "公司每天收到大量排版各异的 PDF 和扫描版贷款申请，手动提取关键信息耗时且易错。为自动化提取这些关键数据以提高效率和准确性，应使用哪个 Google Cloud 工具？\nA. Document AI API\nB. Natural Language API\nC. Vision AI\nD. Dataflow",
+            exp: "从发票、合同、表单、证件等非结构化文档或扫描件中自动理解布局并提取结构化数据，是 Document AI 的核心专属功能。"
           },
           {
             id: 4,
@@ -325,8 +328,8 @@
               D: "Secure-Py-design infrastructure"
             },
             ans: "C",
-            trans: "安全团队需要一个集中式平台全面总览整个 Google Cloud 环境的安全健康状况。",
-            exp: "Security Command Center (SCC) 是 Google Cloud 原生的全面安全和风险管理集中平台。"
+            trans: "安全团队需要一个集中式平台来全面总览整个 Google Cloud 环境（包括 GenAI 部署潜在威胁）的安全健康状况。哪个产品专用于此目的？\nA. 身份和访问管理 (IAM)\nB. 工作负载监控工具\nC. Security Command Center\nD. 默认安全设计的基础设施",
+            exp: "Security Command Center (SCC) 是 Google Cloud 原生的全面安全、威胁检测和风险管理集中控制台。"
           },
           {
             id: 5,
@@ -338,8 +341,8 @@
               D: "Conversational Agents"
             },
             ans: "C",
-            trans: "组织希望为人工客服提供实时指导、建议信息，而不完全自动化对话。应使用哪个组件？",
-            exp: "Agent Assist 在幕后为人工客服提供实时提示和建议，充当“副驾驶”。"
+            trans: "组织希望在人工客服互动中提高效率，寻找一种能够为人工坐席提供实时指导、建议信息并简化流程，但“不完全自动化客户对话”的工具。应使用哪个组件？\nA. Google Cloud Contact Center as a Service\nB. Conversational Insights\nC. Agent Assist\nD. Conversational Agents",
+            exp: "Agent Assist 能够在幕后监听对话，实时向人工客服 (Live agents) 弹出提示、知识库文章和建议回复，充当坐席的“副驾驶”。"
           },
           {
             id: 6,
@@ -351,8 +354,8 @@
               D: "Veo"
             },
             ans: "A",
-            trans: "开发者需要一个高效的、开源的大语言模型，可以在本地机器上微调。应使用哪个模型？",
-            exp: "Gemma 是 Google 推出的开源、轻量级模型系列，极其适合本地部署和微调。"
+            trans: "开发者需要一个高效的、开源的大语言模型，可以在本地机器上微调，适合在硬件受限环境下快速构建聊天机器人原型。应使用哪个 Google 模型系列？\nA. Gemma\nB. Imagen\nC. Gemini\nD. Veo",
+            exp: "Gemma 是 Google 推出的基于 Gemini 架构的开源 (开放权重)、轻量级模型系列，资源占用低，极其适合本地部署和微调。"
           },
           {
             id: 7,
@@ -364,8 +367,8 @@
               D: "Use Vertex AI AutoML to train a model that classifies papers into predefined research areas."
             },
             ans: "A",
-            trans: "研发部需审阅科学论文，希望无需编程即可获得总结和问答解决方案。",
-            exp: "Agent Builder (含 Search 和 Conversation) 允许用户通过低代码方式挂载内部数据源（如论文库）创建 RAG 问答智能体。"
+            trans: "药企研发部需审阅大量科学论文，他们需要一个无需丰富编程经验即可针对这些文档解答问题并提供摘要洞察的解决方案。组织应怎么做？\nA. 使用 Vertex AI Agent Builder 创建自定义 AI 智能体。\nB. 使用 Vertex AI Search 建立索引并启用基于关键字的搜索。\nC. 使用 Gemini for Google Workspace 促进协作文档审查。\nD. 使用 Vertex AI AutoML 训练一个将论文分类的模型。",
+            exp: "Vertex AI Agent Builder 允许用户通过无代码/低代码方式，挂载自己的企业数据源（如科学论文库），快速创建智能问答 RAG 智能体。"
           },
           {
             id: 8,
@@ -377,8 +380,8 @@
               D: "A large language model fine-tuned on educational content"
             },
             ans: "B",
-            trans: "提供个性化学习、评估知识、推荐材料并生成练习。这属于哪种 AI 解决方案？",
-            exp: "能够结合推荐、评估和生成内容的多步综合系统是一个专门定制的垂直智能体。"
+            trans: "公司希望创建一个AI教育平台，提供个性化学习：评估学生知识、推荐相关材料并生成个性化练习、跟踪进度。他们应使用哪种 AI 解决方案？\nA. 学习管理系统 (LMS)\nB. 定制化学习智能体 (Customized learning agent)\nC. 人工智能驱动的学习资源推荐系统\nD. 在教育内容上微调的大语言模型",
+            exp: "能够结合推荐、知识评估、生成内容并跟踪多步复杂流程的系统，是一个专门定制的垂直领域智能体 (Agent)。"
           },
           {
             id: 9,
@@ -390,8 +393,8 @@
               D: "Google Cloud’s collaborative AI community and support forums connect developers with AI experts."
             },
             ans: "A",
-            trans: "团队 AI 经验有限，需快速启动 GenAI 解决方案。Google Cloud 的什么优势能帮到他们？",
-            exp: "对于缺乏深度 AI 编码经验的团队，Model Garden 和 Agent Builder 等低/无代码工具能加速落地。"
+            trans: "团队 AI 经验有限，需快速启动并发布 GenAI 解决方案。Google Cloud 的哪项优势能帮到他们？\nA. Google Cloud 的预训练模型以及低代码/无代码 AI 工具和服务。\nB. Google Cloud 对持续改进的关注...\nC. 全面的培训材料和教程...\nD. 协作式的 AI 社区和支持论坛...",
+            exp: "对于缺乏深度 AI 编码经验且需要快速上市的团队，利用 Model Garden 的预训练模型和 Agent Builder 等低/无代码工具能够极大加速落地。"
           },
           {
             id: 10,
@@ -403,8 +406,8 @@
               D: "Enhanced data encryption and compliance for internal communications."
             },
             ans: "B",
-            trans: "公司内部信息存在孤岛。Google Agentspace 在此场景下的关键业务优势是什么？",
-            exp: "Agentspace (即 Gemini Enterprise 的内部统搜与智能体平台) 的核心优势是打破数据孤岛。"
+            trans: "一家跨国公司面临数据孤岛和关键内部信息访问不一致的问题。在这种情况下，使用 Google Agentspace 的关键业务优势是什么？\nA. 使用 AI 自动化员工绩效评估。\nB. 跨内部系统实现无缝的知识共享和协作。\nC. 改善跨办公室的 IT 基础设施管理。\nD. 增强内部通信的数据加密和合规性。",
+            exp: "Google Agentspace (Gemini 企业内部统搜与智能体平台) 的核心优势就是连接多个企业内部系统，打破数据孤岛，实现无缝知识检索与协作。"
           },
           {
             id: 11,
@@ -416,8 +419,8 @@
               D: "Imagen"
             },
             ans: "A",
-            trans: "营销团队需要一个既能写文章又能生成图片的多功能模型。",
-            exp: "Gemini 是原生多模态模型（支持文本、图像等），而 Imagen 仅限于图像，Veo 限于视频。"
+            trans: "营销团队需要一个基础模型，既能根据文本写文章，又能生成图片。他们缺乏深厚的 AI 专业知识，需要一个多功能解决方案。应使用哪个模型？\nA. Gemini\nB. Gemma\nC. Veo\nD. Imagen",
+            exp: "Gemini 是原生的多模态模型（支持文本生成、图像生成、视频理解等），一站式满足“写文章+生图”的多功能需求。Imagen 仅限图像，Veo 仅限视频。"
           },
           {
             id: 12,
@@ -429,8 +432,8 @@
               D: "Model Registry"
             },
             ans: "D",
-            trans: "团队需要集中存储模型版本、跟踪元数据并轻松部署。应使用什么服务？",
-            exp: "Vertex AI Model Registry 专用于 MLOps 中集中管理和归档模型资产。"
+            trans: "数据科学团队需要一个集中、有条理的位置来存储其各种模型版本、跟踪元数据，并轻松将其部署到相应应用程序。应使用什么服务？\nA. Cloud Storage\nB. Vertex AI Pipelines\nC. BigQuery\nD. Model Registry",
+            exp: "Vertex AI Model Registry 是 MLOps 的关键组件，专用于集中管理、归档和版本控制机器学习模型资产。"
           },
           {
             id: 13,
@@ -442,8 +445,8 @@
               D: "Google Cloud provides fully autonomous AI agents that require zero configuration or management overhead."
             },
             ans: "B",
-            trans: "Google Cloud 作为 GenAI 公司的特征是什么？",
-            exp: "以 AI 优先，赋能创新，持续更新并在平台中广泛集成。"
+            trans: "Google Cloud 作为生成式 AI 公司的特征是什么？\nA. 依赖专有、闭源的 AI 技术以获得最大安全效益。\nB. 具有 AI 优先的重点以赋能创新，持续更新并在其整个平台中广泛集成。\nC. 确保所有 AI 模型和数据完全安全并与外部网络隔离。\nD. 提供需要零配置或管理开销的全自主 AI 智能体。",
+            exp: "Google 的核心战略是“AI 优先 (AI-first)”，并且致力于将 AI 技术深度集成融合到 Workspace、Cloud、搜索等整个生态系统中。"
           },
           {
             id: 14,
@@ -455,8 +458,8 @@
               D: "The ability to build and deploy deterministic and generative chatbot agents for automated customer support."
             },
             ans: "B",
-            trans: "Agent Assist 能帮助公司实现什么？",
-            exp: "在交互期间为人工客服提供实时辅助和推荐响应。"
+            trans: "Google Cloud 的 Agent Assist 能帮助公司实现什么？\nA. 分析对话数据以识别客户情绪、提取洞见...\nB. 在人工客服互动期间，向他们提供实时辅助和推荐响应。\nC. 提供企业级呼叫中心基础设施...\nD. 构建和部署自动化客户支持的聊天机器人...",
+            exp: "Agent Assist 的唯一定位是“赋能人工坐席”，在通话或文字聊天时向坐席人员实时弹出知识库答案或建议话术。"
           },
           {
             id: 15,
@@ -468,8 +471,8 @@
               D: "Vertex AI"
             },
             ans: "D",
-            trans: "需要一个能构建、部署、管理 GenAI 解决方案（含基础设施、工具、预训练模型）的平台。",
-            exp: "Vertex AI 是 Google Cloud 统一的端到端机器学习平台。"
+            trans: "公司需要一个 GenAI 平台，提供构建、部署和管理其 AI 解决方案所需的基础设施、工具和预训练模型。应使用哪个 Google Cloud 产品？\nA. BigQuery\nB. Google Kubernetes Engine (GKE)\nC. Google Cloud Storage\nD. Vertex AI",
+            exp: "Vertex AI 是 Google Cloud 上统一的端到端机器学习平台，集成了从基础模型到开发、训练、部署的所有 MLOps 工具。"
           },
           {
             id: 16,
@@ -481,8 +484,8 @@
               D: "Greater interoperability with legacy software systems and databases."
             },
             ans: "C",
-            trans: "探索 Agentspace 改善员工搜索和任务自动化。其关键业务优势？",
-            exp: "利用 AI 助手和高级文档分析提高生产力与数据交互效率。"
+            trans: "公司正在探索 Google Agentspace，以改善员工在企业系统中搜索信息和自动化任务的方式。使用 Agentspace 的关键业务优势是什么？\nA. 增强团队成员之间的实时通信和协作。\nB. 对敏感数据的访问和权限进行更细粒度的控制。\nC. 利用 AI 助手和高级文档分析来提高生产力和数据交互效率。\nD. 提高与旧软件系统和数据库的互操作性。",
+            exp: "Agentspace 让员工可以通过 AI 助手以自然语言提问，快速从海量企业文档中提取答案，从而极大提升生产力。"
           },
           {
             id: 17,
@@ -494,8 +497,8 @@
               D: "Security Command Center."
             },
             ans: "C",
-            trans: "组织希望对“谁能使用和查看 GenAI 模型”进行精细控制。应使用哪个安全产品？",
-            exp: "IAM 身份和访问管理专门用于管理资源级别的访问权限控制。"
+            trans: "组织希望对“谁能使用和查看他们在 Google Cloud 上的 GenAI 模型和相关资源”进行精细控制。哪个安全产品专门用于此目的？\nA. 工作负载监控工具。\nB. 默认安全设计的基础设施。\nC. 身份和访问管理 (IAM)。\nD. Security Command Center。",
+            exp: "IAM (Identity and Access Management) 是云端专门用于管理用户权限、角色和访问控制的服务。"
           },
           {
             id: 18,
@@ -507,8 +510,8 @@
               D: "Vertex AI Platform"
             },
             ans: "C",
-            trans: "电商网站客户难以找到商品，支持成本高。希望改善网站搜索。应使用什么产品？",
-            exp: "Vertex AI Search 提供开箱即用的电商搜索、多模态搜索解决方案。"
+            trans: "电商网站产品目录庞大，客户难以找到信息，导致支持成本高昂。公司希望采用 Google Cloud 解决方案改善网站搜索。应使用什么产品？\nA. Google Shopping\nB. Google Search\nC. Vertex AI Search\nD. Vertex AI Platform",
+            exp: "Vertex AI Search 提供开箱即用的、由大型企业搜索引擎支持的电商/多模态搜索解决方案，专为企业网站站内搜索打造。"
           },
           {
             id: 19,
@@ -520,8 +523,8 @@
               D: "Google Cloud’s focus on automation aims to replace human jobs with AI systems, potentially leading to significant workforce reductions."
             },
             ans: "C",
-            trans: "担心供应商绑定 (vendor lock-in)，希望保持灵活性。Google Cloud 哪项优势能缓解此担忧？",
-            exp: "Google 提供大量开源模型 (Gemma, Llama) 及广泛的框架支持，采用开放式方法，避免底层技术绑定。"
+            trans: "公司担心供应商绑定 (vendor lock-in)，希望在技术栈中保持灵活性。Google Cloud 的哪项优势能缓解他们的担忧？\nA. 严格坚持专有技术以确保最高安全...\nB. 预打包方案以消除定制需求...\nC. 拥抱开放式的方法，在各种产品中支持客户选择。\nD. 专注于自动化以取代人类工作...",
+            exp: "Google Cloud 采用开放式生态（支持海量开源模型如 Llama/Gemma、支持 Hugging Face 等框架），极大程度避免了底层技术的供应商锁定。"
           },
           {
             id: 20,
@@ -533,8 +536,8 @@
               D: "Integrate the CRM with a popular sales intelligence platform to automatically enrich lead profiles with valuable data."
             },
             ans: "C",
-            trans: "销售团队耗时研究线索并手动录入 CRM。如何提高效率？",
-            exp: "实施 Agentspace，加入 CRM 智能体自动执行线索研究和数据录入。"
+            trans: "销售团队花费大量时间研究潜在客户并手动将数据录入 CRM。为了提高效率让他们专注于达成交易，组织应该怎么做？\nA. 开发自定义 AutoML 解决方案...\nB. 实施 Contact Center AI...\nC. 实施包含 CRM 智能体的 Google Agentspace“统一企业搜索”，自动执行潜在客户研究和数据录入。\nD. 将 CRM 与销售情报平台集成...",
+            exp: "Agentspace 及其内置智能体（如 CRM 智能体）可以直接调用企业系统接口，自动化完成跨系统的繁杂查询和数据录入工作。"
           },
           {
             id: 21,
@@ -546,8 +549,8 @@
               D: "Use Google Cloud databases and Vertex AI for the agent to get live data."
             },
             ans: "D",
-            trans: "物流公司需用智能体检查实时库存。最具成本效益的方案？",
-            exp: "微调模型成本高且无法获取“实时”数据。最佳方案是将模型连接到数据库工具以提取实时上下文。"
+            trans: "物流公司需用 GenAI 智能体检查“实时库存”并调整时间表。智能体需要访问内部数据，且需最具成本效益。应该怎么做？\nA. 构建自定义 API，不使用 AI 智能体。\nB. 使用预建的问答聊天机器人。\nC. 在 Vertex AI Studio 中使用样本数据微调模型。\nD. 使用 Google Cloud 数据库结合 Vertex AI 让智能体获取实时数据。",
+            exp: "微调模型成本极高，且模型权重是静态的、无法获取“实时 (Real-time)”数据。最佳方案是通过函数调用 (Function Calling/Tools) 让 Vertex AI 连接到企业数据库拉取实时上下文。"
           },
           {
             id: 22,
@@ -559,8 +562,8 @@
               D: "Chirp"
             },
             ans: "A",
-            trans: "需要大上下文窗口的基础模型来分析冗长的客户反馈记录。",
-            exp: "Gemini 模型支持极长的上下文窗口（百万级别 Tokens）。"
+            trans: "组织需要一个拥有巨大“上下文窗口 (large context window)”的基础模型，来分析和总结冗长的客户反馈文字记录。应选择哪个模型？\nA. Gemini\nB. CodeGemma\nC. Imagen\nD. Chirp",
+            exp: "Gemini 1.5 系列具有革命性的超长上下文窗口（可达 100万~200万 Tokens），非常适合一次性吞吐和分析极其冗长的文档。"
           },
           {
             id: 23,
@@ -572,8 +575,8 @@
               D: "Vertex AI Model Garden"
             },
             ans: "C",
-            trans: "改善电商产品发现与搜索准确性。",
-            exp: "Vertex AI Search 底层完美融合了 RAG 技术，提供极高的搜索相关性。"
+            trans: "一家拥有庞大且更新频繁商品目录的电商发现，客户很难在网站上找到商品，坐席也耗时寻找产品信息。想改善搜索准确性和效率，应使用什么解决方案？\nA. Vertex AI Conversation\nB. Vertex AI Natural Language API\nC. Pre-built RAG with VERTEX AI Search\nD. Vertex AI Model Garden",
+            exp: "Vertex AI Search 底层完美封装和融合了 RAG 技术，能够针对频繁更新的商品目录提供极高相关性的语义搜索支持。"
           },
           {
             id: 24,
@@ -585,8 +588,8 @@
               D: "Gemini for Google Workspace"
             },
             ans: "C",
-            trans: "组织希望无需复杂设置即可快速试用不同的 Gemini 模型和参数进行初步探索。",
-            exp: "Google AI Studio 面向快速实验、界面极简，适合初期无需复杂设置的原型开发。"
+            trans: "组织希望在没有复杂设置的情况下，快速试用不同的 Gemini 模型和参数进行内容创建。对于这种初步探索，应使用什么服务？\nA. Vertex AI Studio\nB. Vertex AI Prediction\nC. Google AI Studio\nD. Gemini for Google Workspace",
+            exp: "Google AI Studio 是一个面向开发者的轻量级、极简网页原型工具，免去了 Vertex AI 的复杂项目配置，专为快速实验 Prompt 和模型调参而生。"
           },
           {
             id: 25,
@@ -598,8 +601,8 @@
               D: "Conversational Insights"
             },
             ans: "D",
-            trans: "需要一种工具来分析聊天机器人和人工客服的所有对话数据，提取趋势和情感分析洞见。",
-            exp: "Conversational Insights (对话分析洞见) 专门用于此类任务。"
+            trans: "组织希望分析所有聊天机器人和人工客服的“对话历史数据”，提取趋势、常见问题和情感洞见。需要哪个套件组件？\nA. Agent Assist\nB. Google Cloud Contact Center as a Service\nC. Conversational Agents\nD. Conversational Insights",
+            exp: "Conversational Insights (对话分析洞见/CCAI Insights) 专门用于处理呼叫中心历史录音和聊天记录，利用 NLP 提取数据统计和业务洞见。"
           },
           {
             id: 26,
@@ -611,8 +614,8 @@
               D: "TPUs are primarily designed to improve the general processing speed of virtual machines in the cloud."
             },
             ans: "C",
-            trans: "Google 定制 TPU 的主要优势是什么？",
-            exp: "专精于机器学习工作负载并行处理的专用 AI 处理器。"
+            trans: "使用 Google 定制设计 TPU 的主要优势是什么？\nA. 增加数据中心内的存储容量...\nB. 部署在边缘设备上的轻量级处理器...\nC. 它们是专门的 AI 处理器，擅长机器学习工作负载的并行处理。\nD. 旨在提高虚拟机一般处理速度...",
+            exp: "TPU (Tensor Processing Unit) 是 Google 专为加速神经网络和张量数学计算量身定做的专用芯片，并行计算能力极强。"
           },
           {
             id: 27,
@@ -624,8 +627,8 @@
               D: "It provides scalable and cost-effective object storage for data used in machine learning workflows."
             },
             ans: "C",
-            trans: "为什么选择 Vertex AI 平台来优化 GenAI 解决方案？",
-            exp: "它提供了一个统一的平台工具集，用于构建、部署和管理机器学习。"
+            trans: "公司在决定使用哪个平台来优化其 GenAI 解决方案。为什么应选择 Vertex AI 平台？\nA. 提供代码辅助并保护隐私...\nB. 提供分析大型数据集的机制...\nC. 它提供了一个用于构建、部署和管理机器学习的统一个工具平台。\nD. 提供可扩展的对象存储...",
+            exp: "Vertex AI 最大的卖点就是“大一统 (Unified platform)”，整合了 AI 生命周期所需的全部工具链。"
           },
           {
             id: 28,
@@ -637,8 +640,8 @@
               D: "The challenge of efficiently producing high-quality written summaries and initial drafts of financial communications."
             },
             ans: "D",
-            trans: "财务团队使用轻量级 Gemma 模型，最能高效解决哪个问题？",
-            exp: "Gemma 作为文本大语言模型，最擅长生成式文本任务（如摘要和起草）。预测与复杂知识库需专门的 AutoML 或 RAG 平台。"
+            trans: "财务团队希望使用轻量级开源模型 Gemma 辅助日常任务。Gemma 最能高效解决哪个问题？\nA. 从各种财务图表和复杂文档中提取数字...\nB. 构建复杂的内部知识库...\nC. 分析海量交易数据以预测未来表现...\nD. 高效制作高质量的文字摘要和起草财务通信初稿。",
+            exp: "Gemma 作为纯文本大语言模型，最擅长生成式文本任务（如摘要和起草）。数据提取需 Document AI，预测需传统 ML，知识库需 RAG 架构。"
           },
           {
             id: 29,
@@ -650,8 +653,8 @@
               D: "Use the Gemini app to ask general financial trend questions."
             },
             ans: "A",
-            trans: "需分析冗长财务 PDF，提取 KPI，希望有一个能处理文档、生成摘要并“附带引用出处”的预构建 AI 工具。",
-            exp: "NotebookLM 是完全接地的个人研究助手，最大特色是附带引用 (Citations) 源材料。"
+            trans: "研究公司需分析多份冗长的财务 PDF 并识别 KPI 趋势。他们希望有一个“预构建的工具”来处理文档，并能提供附带源材料“引用出处 (citations)”的摘要洞察。应该怎么做？\nA. 使用 NotebookLM 上传并分析文档。\nB. 在 Gemini Advanced 中创建自定义 Gem...\nC. 在 Google Docs 中复制粘贴...\nD. 使用 Gemini 应用询问一般性趋势...",
+            exp: "NotebookLM 是 Google 推出的专属“AI 笔记本/研究助手”，其最大的特色就是完全基于用户上传的文档生成回答，并严格标注对应的段落引用出处。"
           },
           {
             id: 30,
@@ -663,8 +666,8 @@
               D: "Prompt the Gemini app to create a video."
             },
             ans: "B",
-            trans: "需要零成本快速创建带虚拟形象和配音的培训视频。",
-            exp: "Google Vids 是 Workspace 生态中专门通过 AI 生成和编辑视频原型的应用。"
+            trans: "团队希望零成本快速创建一个带有自定义虚拟形象和配音的“新员工培训视频”。他们应该怎么做？\nA. 用 Imagen 生成视频帧。\nB. 使用 Google Vids 创建视频。\nC. 使用 Vertex AI 训练模型...\nD. 提示 Gemini 应用创建视频。",
+            exp: "Google Vids 是 Workspace 生态中专门为了办公场景（如营销、培训幻灯片）通过 AI 快速生成、排版和配音的视频办公应用。"
           },
           {
             id: 31,
@@ -676,8 +679,8 @@
               D: "Manage different versions of a model including the code, data, and parameters used to train it."
             },
             ans: "C",
-            trans: "Model Garden (模型中心) 能让企业做什么？",
-            exp: "发现、自定义和部署来自 Google 及其合作伙伴的现有模型。"
+            trans: "Model Garden (模型中心) 能让企业做什么？\nA. 从头开始训练新模型。\nB. 使用各种指标评估不同模型的性能。\nC. 发现、自定义和部署来自 Google 及其合作伙伴的现有模型。\nD. 管理模型的不同版本及训练参数。",
+            exp: "Model Garden 就像一个 AI 模型的“应用商店”，提供 Google 自研模型（Gemini）和第三方开源模型（Llama, Claude 等）的一键发现与部署。"
           },
           {
             id: 32,
@@ -689,8 +692,8 @@
               D: "Gemini for Google Cloud"
             },
             ans: "B",
-            trans: "银行跨多渠道咨询应接不暇，需要提供无缝支持并赋能人工坐席的 AI 解决方案。",
-            exp: "CCaaS提供了全渠道客服支持和无缝集成 AI 智能体的底层联络中心架构。"
+            trans: "一家全国性银行被跨多个渠道的客户咨询所淹没，需要一个 AI 解决方案来提供无缝支持、赋能坐席并改善服务质量。该银行应使用哪个产品？\nA. Gemini for Google Workspace\nB. Google Contact Center as a Service (CCaaS)\nC. Vertex AI Search\nD. Gemini for Google Cloud",
+            exp: "Google CCaaS 提供了包含了全渠道接入、智能路由、虚拟机器人、人工辅助 (Agent Assist) 等一套完整的现代 AI 联络中心架构。"
           }
         ]
       },
@@ -707,8 +710,8 @@
               D: "To consolidate all unique AI functions into a single, undifferentiated model."
             },
             ans: "A",
-            trans: "使用多智能体系统 (multi-agent) 的主要好处是什么？",
-            exp: "多智能体通过模块化分工（各司其职）来共同完成单体智能体难以处理的复杂任务。"
+            trans: "使用多智能体系统 (multi-agent) 的主要好处是什么？\nA. 管理需要协调多个 AI 功能的复杂任务。\nB. 作为一个托管传统非 AI 应用的平台。\nC. 简化最基本和重复性的基于规则的任务。\nD. 将所有独特的 AI 功能整合到一个单一的、无差别的模型中。",
+            exp: "多智能体架构通过安排多个不同角色的专家智能体相互协作，将大任务拆解分工，从而完成单体大模型难以胜任的超复杂任务。"
           },
           {
             id: 2,
@@ -720,8 +723,8 @@
               D: "Use few-shot prompting."
             },
             ans: "A",
-            trans: "需要确保聊天机器人能够访问之前的对话部分。应使用哪种提示技术？",
-            exp: "提示链 (Prompt Chaining) 在同一对话串中连续对话，让模型记住之前的上下文。"
+            trans: "组织希望创建一个聊天机器人来回答余额查询。他们需要确保机器人能够“访问之前与客户的对话部分”。应使用哪种提示技术？\nA. 使用提示链 (prompt chaining)。\nB. 使用零样本提示。\nC. 使用角色提示。\nD. 使用少样本提示。",
+            exp: "提示链 (Prompt Chaining) 即将对话文段串联，将前一步的输出和历史作为下一步请求的输入，使模型能“记住”上下文。"
           },
           {
             id: 3,
@@ -733,8 +736,8 @@
               D: "Use prompt chaining."
             },
             ans: "B",
-            trans: "确保生成的营销文本适合目标受众（特定的语气/视角）。应如何提示？",
-            exp: "给模型分配身份（如：你是一个资深品牌营销专家），从而掌控其输出风格。"
+            trans: "组织想要使用生成式 AI 创建营销活动，需要确保生成的文本具有“适合目标受众的语气和视角”。应该怎么做？\nA. 使用少样本提示。\nB. 使用角色提示 (role prompting)。\nC. 调整温度参数。\nD. 使用提示链。",
+            exp: "角色扮演 (Role prompting) 如“你是一位面向 Z 世代的资深营销专家”，能极大程度地强制模型改变其默认输出风格和语气。"
           },
           {
             id: 4,
@@ -746,8 +749,8 @@
               D: "Adjust temperature parameter."
             },
             ans: "C",
-            trans: "确保聊天机器人“仅使用”公司官方文档中的信息来回答。",
-            exp: "接地 (Grounding) / RAG 强制模型将其输出建立在可验证的特定来源上。"
+            trans: "为确保聊天机器人“仅使用”公司官方文档中的信息来回答客户问题。公司应该怎么做？\nA. 使用角色提示。\nB. 使用提示链。\nC. 使用接地 (Grounding)。\nD. 调整温度参数。",
+            exp: "接地 (Grounding) 或 RAG 技术将模型的生成能力限制在提供的知识库片段内，可防止模型自由发挥产生幻觉。"
           },
           {
             id: 5,
@@ -759,8 +762,8 @@
               D: "Decrease the output length of the summaries to make them more concise."
             },
             ans: "C",
-            trans: "模型偶尔会误解帖子的“反讽”和“讽刺”。应如何克服？",
-            exp: "整合“人机协同”(HITL) 审核流程以完善处理这种极其微妙和主观的情境。"
+            trans: "摘要模型偶尔会误解帖子的“反讽、讽刺或微妙观点”，导致误解或冒犯。应如何克服此局限性？\nA. 增加温度参数以鼓励更多变化...\nB. 实施更严格的安全设置以过滤内容...\nC. 结合“人在回路”(HITL) 的审核流程来优化摘要。\nD. 减少输出长度使其更简明。",
+            exp: "目前 AI 在理解人类主观文化、反讽和极其微妙的语境上依然存在缺陷。对于这些高风险且需要文化共情的环节，必须引入“人机协同 / HITL”进行人工审核校对。"
           },
           {
             id: 6,
@@ -772,8 +775,8 @@
               D: "Use gen AI to suggest code snippets and complete functions."
             },
             ans: "D",
-            trans: "开发团队希望使用 GenAI 加快编码速度。应该主要用它做什么？",
-            exp: "使用 GenAI 建议代码段和补全函数 (Code Completion)。"
+            trans: "软件开发团队希望使用 GenAI 加快编码速度以更快推出原型。团队应该主要利用它做什么？\nA. 重构和优化现有代码。\nB. 自动生成综合文档。\nC. 识别错误和安全漏洞。\nD. 使用 GenAI 建议代码片段并补全函数。",
+            exp: "编写代码最耗时的是逐行敲击。让 AI 充当副驾驶进行代码续写和补全 (Code completion) 是直接提高产出速度的核心场景。"
           },
           {
             id: 7,
@@ -785,8 +788,8 @@
               D: "They allow the development team to train a single foundation model on all company documents."
             },
             ans: "C",
-            trans: "内部知识库存储在云端且定期更新。在此场景中使用 RAG API 的主要好处是什么？",
-            exp: "使生成式 AI 模型能够实时从策略文档中检索最新和最相关的信息。"
+            trans: "内部政策存放在云端且定期被各部门更新。在此问答场景中使用 RAG API 的主要好处是什么？\nA. 提供预构建 UI 简化开发...\nB. 自动生成所有政策的摘要...\nC. 它们使生成式 AI 模型能够实时从策略文档中检索最新和最相关的信息。\nD. 允许团队在所有文档上训练单一基础模型...",
+            exp: "RAG 技术不要求你把数据“训练”到模型里，而是让模型像查阅数据库一样实时搜索，因此能永远保持答案基于“最新 (up-to-date)”的动态文档。"
           },
           {
             id: 8,
@@ -798,8 +801,8 @@
               D: "RAG fine-tunes the LLM on specific customer query patterns to improve the speed and efficiency of response generation."
             },
             ans: "C",
-            trans: "LLM由于“知识截止日期”产生幻觉。RAG 如何克服此限制？",
-            exp: "RAG 能够让 LLM 从外部知识源检索相关的、最新的信息补充进来作为上下文。"
+            trans: "LLM 由于“知识截止日期”而在谈论新事物时产生幻觉。RAG 技术如何克服这一限制？\nA. 增强大模型的创造性写作能力...\nB. 使用人工监督以确保准确性...\nC. RAG 能够让 LLM 从外部知识源检索相关且最新的信息。\nD. 根据查询模式微调 LLM...",
+            exp: "模型自身知识停留在训练结束那天（知识截止）。RAG 允许在模型回答前，先去外部数据库/搜索引擎查资料，将搜到的最新事实喂给模型作为上下文。"
           },
           {
             id: 9,
@@ -811,8 +814,8 @@
               D: "Document AI"
             },
             ans: "A",
-            trans: "机构需要快速总结在线发布的“突发新闻”。",
-            exp: "只有 Google 搜索接地能立刻获取全网秒级爆发的突发新闻事实。"
+            trans: "全球新闻机构希望开发 AI 工具，在新文章发布到网上时快速总结“突发新闻”，为受众提供全网各种来源的快速更新。应使用哪种解决方案？\nA. 使用 Google Search 接地 (Grounding)\nB. Vertex AI Natural Language API\nC. BigQuery\nD. Document AI",
+            exp: "突发新闻秒级爆发，任何内部企业私有 RAG 库都无法跟上。唯一能获取全世界最新公开事实的就是基于 Google 公网搜索的 Grounding。"
           },
           {
             id: 10,
@@ -824,8 +827,8 @@
               D: "Use prompt engineering techniques like few-shot prompting, to provide the chatbot with examples of successful interactions."
             },
             ans: "D",
-            trans: "增强聊天机器人进行类似人类对话的能力。",
-            exp: "使用少样本提示 (Few-shot) 等工程技术，为聊天机器人提供成功的互动示例以供参考模仿。"
+            trans: "为增强聊天机器人进行类似人类自然对话并有效响应的能力，公司应该怎么做？\nA. 降低温度设置以产生一致响应...\nB. 严格关键词匹配...\nC. 限制训练数据...\nD. 使用少样本提示 (Few-shot prompting) 等工程技术，为聊天机器人提供成功互动的示例供其参考。",
+            exp: "Few-shot (提供少量问答范例) 是一种非常有效的提示技术，能教会模型我们期望的特定对话节奏、语气和答复格式。"
           },
           {
             id: 11,
@@ -837,8 +840,8 @@
               D: "To compare products from numerous online retailers, allowing users to find the best deals and product options across the internet."
             },
             ans: "A",
-            trans: "Vertex AI Search 使公司能够做什么？",
-            exp: "利用第一方数据、第三方数据和 Google 知识图谱对 LLM 回答进行接地 (Grounding)。"
+            trans: "Vertex AI Search 使公司能够做什么？\nA. 利用第一方数据、第三方数据和 Google 知识图谱对 LLM 回答进行接地 (Grounding)。\nB. 发现全网最受欢迎的内容趋势...\nC. 对整个公网进行索引和检索...\nD. 比较零售商的产品价格...",
+            exp: "Vertex AI Search 并非用于全网搜索，而是专门的“企业搜索平台”，核心能力就是通过接入各种企业内外部数据源实现 RAG 接地。"
           },
           {
             id: 12,
@@ -850,8 +853,8 @@
               D: "To control the creativity and randomness of the model’s output by adjusting the diversity of word choices."
             },
             ans: "A",
-            trans: "安全设置 (Safety settings) 参数的主要功能是什么？",
-            exp: "根据所需的过滤级别从模型输出中过滤潜在有害或不当的内容。"
+            trans: "安全设置 (Safety settings) 参数在生成式 AI 模型中的主要功能是什么？\nA. 根据所需的过滤级别，从模型的输出中过滤出可能有害或不当的内容。\nB. 限制模型生成的最大文本长度...\nC. 决定模型一次可以处理的 token 数量...\nD. 控制模型输出的随机性和创造力...",
+            exp: "Safety Settings 提供拦截仇恨言论、暴力、色情等有害内容的阈值控制面板（如屏蔽级别设置为中、高）。"
           },
           {
             id: 13,
@@ -863,8 +866,8 @@
               D: "One-shot prompting that provides a single example of a good customer service email."
             },
             ans: "A",
-            trans: "引导 AI 采用富有同理心的语气并遵守公司政策。",
-            exp: "指示 AI 充当经验丰富的客服代表的角色提示 (Role prompting)。"
+            trans: "需要一种提示技术来引导 AI 采用乐于助人且具有同理心的语气，并遵守公司政策。应使用哪种技术？\nA. 指示 AI 充当具备企业知识的“经验丰富的客服代表”的角色提示 (Role prompting)。\nB. 提供好坏邮件示例的少样本提示。\nC. 在生成回复前收集信息的提示链。\nD. 单样本提示。",
+            exp: "给 AI 赋予一个人设（例如：你是一个专业热情的高级客服经理），它就会自动在回复中代入这种高同理心、负责任的口吻和框架。"
           },
           {
             id: 14,
@@ -876,8 +879,8 @@
               D: "RAG will primarily help the chatbot generate more creative and engaging conversational responses."
             },
             ans: "C",
-            trans: "确保即使针对训练数据中没有的最新产品信息，聊天机器人也能准确回答。RAG 的关键优势？",
-            exp: "RAG 能够访问利用外部最新知识源提供更准答案。"
+            trans: "公司希望聊天机器人能够准确回答涉及“最近更新且不在模型原始训练数据中”的产品信息。实施 RAG 的关键优势是什么？\nA. 大幅减少计算资源需求。\nB. 使机器人能够基于互动实时微调其底层语言模型。\nC. RAG 能够让聊天机器人访问和利用外部的、最新的知识源，以提供更准的答案。\nD. 帮助机器人生成更具创造力的对话。",
+            exp: "无需微调重新训练，RAG 挂载的外部知识库一经更新，大模型搜索到的上下文就是最新的，从根本上解决时效性问题。"
           },
           {
             id: 15,
@@ -889,8 +892,8 @@
               D: "Safety settings"
             },
             ans: "B",
-            trans: "确保生成的摘要简短、扼要。应调整哪个设置？",
-            exp: "Output length (输出长度 / Max Tokens) 用于控制模型生成内容的字数上限。"
+            trans: "团队希望生成的客户反馈摘要短小精悍 (concise)。他们应该调整哪个模型设置？\nA. 温度 (Temperature)\nB. 输出长度限制 (Output length / Max Tokens)\nC. Top-p 参数\nD. 安全设置",
+            exp: "要严格控制生成字数的长短，最直接有效的方法就是设置 Output length / Max output tokens 的阈值。"
           },
           {
             id: 16,
@@ -902,8 +905,8 @@
               D: "Zero-shot"
             },
             ans: "B",
-            trans: "提示中明确写道：“我们首先识别核心问题，然后检查知识库，最后进行解释...现在请给出下一步操作。” 这属于什么提示？",
-            exp: "要求模型将其推理过程按步骤拆解（Step-by-step），这是典型的思维链 (CoT) 提示。"
+            trans: "提示中明确包含如下逻辑：“我们首先应该识别核心问题。然后去查知识库有无方案。如果有则解释，没有则升级... 按照这些步骤...现在请给出下一步”。这属于什么类型的提示？\nA. 少样本 (Few-shot)\nB. 思维链 (Chain-of-thought)\nC. 基于角色 (Role-based)\nD. 零样本 (Zero-shot)",
+            exp: "当提示词显式地展示或要求模型按照逻辑步骤一步一步来思考 (Step-by-step logic/Following steps) 时，这属于经典的思维链 (CoT) 提示法。"
           },
           {
             id: 17,
@@ -915,8 +918,8 @@
               D: "Train the model on a dataset of marketing materials from other eco-friendly brands."
             },
             ans: "C",
-            trans: "提示仅写了“写一个描述”，结果平淡乏味、未突出环保优势。如何克服？",
-            exp: "在提示中添加关于受众、语气和关键词的细节，让约束条件更丰富明确。"
+            trans: "仅使用简短提示“写一个产品描述”生成的结果平淡乏味，未突出品牌关键的环保优势。营销团队应如何克服此局限性？\nA. 降低模型温度...\nB. 增加 token 数限制...\nC. 在提示中添加有关目标受众、语气和关键词的详细约束信息。\nD. 在其他品牌的材料上训练模型...",
+            exp: "提示词越模糊，模型生成的废话越多。优化输出最直接的方法就是完善提示词工程，补充对受众、口吻风格和必须包含的关键词（如环保）的明确指令。"
           },
           {
             id: 18,
@@ -928,8 +931,8 @@
               D: "Increase the temperature setting of the model to encourage more diverse outputs."
             },
             ans: "B",
-            trans: "新闻模型产生幻觉，捏造了一个并未发生的新闻细节。如何克服？",
-            exp: "使用接地将模型输出建立在源文章之上，约束瞎编的可能性。"
+            trans: "新闻模型在总结国际峰会时产生了幻觉，捏造了一个并未发生的细节。公司应该如何克服这种幻觉？\nA. 在更大的数据集上微调模型。\nB. 使用接地 (Grounding) 技术，将模型输出严格建立在源新闻文章上。\nC. 实施更严格的安全设置过滤争议话题。\nD. 提高温度设置以鼓励多样化输出。",
+            exp: "对特定文档写摘要最怕模型擅自脑补。使用接地（将系统提示限定为：请严格基于提供的原文撰写摘要，不可编造）能最有效地约束幻觉。"
           }
         ]
       },
@@ -946,8 +949,8 @@
               D: "Multi-directional strategy"
             },
             ans: "D",
-            trans: "定义 GenAI 战略，希望遵循 Google 推荐的最佳实践。应使用哪种战略？",
-            exp: "Google 推荐结合“自上而下的愿景支持”与“自下而上的员工采纳”，即多向协同 (Multi-directional)。"
+            trans: "公司正在制定他们的 GenAI 战略，希望遵循 Google 推荐的最佳实践。他们应使用哪种战略？\nA. 自下而上的战略\nB. 快速实施战略\nC. 自上而下的战略\nD. 多向战略 (Multi-directional strategy)",
+            exp: "Google 强烈推荐企业采用多向协同战略 (Multi-directional)，即结合高管层“自上而下”的清晰愿景支持，以及基层员工“自下而上”的业务痛点发现与采纳反馈。"
           },
           {
             id: 2,
@@ -959,8 +962,8 @@
               D: "Improved customer engagement and product discovery leading to increased satisfaction and potential sales."
             },
             ans: "D",
-            trans: "零售公司实现多模态搜索（图像、语音和文本）。主要业务优势是什么？",
-            exp: "改善客户参与度和产品发现率，从而提升满意度与潜在销量。"
+            trans: "零售公司希望通过实施多模态搜索（图像、语音和文本）来改善客户体验并推动销售。此功能的主要业务优势是什么？\nA. 减少对列表关键字优化的依赖并改善排名。\nB. 简化库存管理...\nC. 降低运维成本...\nD. 改善客户参与度和产品发现率，从而提升满意度和潜在销售额。",
+            exp: "允许客户拍张照片或说话就能找同款商品（多模态发现），能极大地降低客户搜索阻力，提升购买转化率。"
           },
           {
             id: 3,
@@ -972,8 +975,8 @@
               D: "Develop fairness assessments for the gen AI model."
             },
             ans: "C",
-            trans: "使用 GenAI 拒绝贷款但不给出原因导致投诉。如何解决？",
-            exp: "在金融等高风险场景，做出的决策必须具有透明度和可解释性 (Explainability)。"
+            trans: "金融机构使用 GenAI 拒绝贷款但不给出任何理由，导致客户开始投诉。公司应实施什么解决方案？\nA. 微调模型。\nB. 收集更大更多样化的数据集。\nC. 实施可解释的 GenAI 政策 (Explainable AI)。\nD. 制定公平性评估。",
+            exp: "在金融借贷、医疗诊断等高风险的“黑盒”应用中，AI 做出的决定必须向最终用户具有透明度和可解释性 (Explainability)。"
           },
           {
             id: 4,
@@ -985,8 +988,8 @@
               D: "Ensuring that the AI application can automatically rank all candidates without requiring human review."
             },
             ans: "C",
-            trans: "HR 团队使用 AI 筛选简历。为确保公平并建立信任，应优先考虑什么？",
-            exp: "确保 AI 透明运作，尤其是关于评估和数据使用方面 (Transparency & Fairness)。"
+            trans: "HR 团队正在实施新的 AI 应用以辅助筛选大量简历。为确保公平并与候选人建立信任，团队应优先考虑什么？\nA. 将应用与各大招聘板集成...\nB. 最小化处理时间...\nC. 确保 AI 透明运作，尤其是关于简历评估规则和数据使用方面。\nD. 确保无需人工审核即可自动对候选人进行排名。",
+            exp: "涉及人类前途的 AI 应用（如招聘、录取），必须符合“透明度 (Transparency)”原则，让受众明白系统是如何评估他们的。"
           },
           {
             id: 5,
@@ -998,8 +1001,8 @@
               D: "When tasks involve sensitive information or require human oversight."
             },
             ans: "C",
-            trans: "生成式 AI 应该在什么时候用于“自动化 (Automate)”任务？",
-            exp: "对于创造性或战略性决策任务，AI 应该用于“增强 (Augment)”，而重复规则性任务适合“完全自动化 (Automate)”。"
+            trans: "根据 Google 推荐的做法，什么时候应将生成式 AI 用于“完全自动化 (Automate)”任务？\nA. 当任务极具创造性时。\nB. 当任务复杂且需要战略决策时。\nC. 当任务具有重复性且基于规则时。\nD. 当任务涉及敏感信息时。",
+            exp: "负责任的 AI 框架中：创造性和战略决策任务应让 AI 起到“增强/副驾驶 (Augment)”作用；而枯燥、重复且明确规则的任务才适合让 AI 去“自动化接管 (Automate)”。"
           },
           {
             id: 6,
@@ -1011,8 +1014,8 @@
               D: "The specific business problems the company aims to solve and the desired outcomes."
             },
             ans: "D",
-            trans: "选择最具影响力的 GenAI 用例。首先应确定哪个关键因素？",
-            exp: "任何 AI 落地必须“以业务为导向 (Business-led)”，先找痛点，再选技术。"
+            trans: "公司希望选择一个最具影响力和成功率的 GenAI 用例。首先应确定哪个关键因素？\nA. 受训员工的数量。\nB. 预训练模型的可用性。\nC. 基础模型的更新频率。\nD. 公司旨在解决的具体业务问题及其期望取得的成果。",
+            exp: "项目落地第一铁律：必须“以业务为导向 (Business-led)”。切忌拿着锤子找钉子，应先明确业务痛点，再看 AI 技术能否解决它。"
           },
           {
             id: 7,
@@ -1024,8 +1027,8 @@
               D: "To replace the sales team’s CRM system with a more intuitive and user-friendly interface."
             },
             ans: "B",
-            trans: "销售经理希望利用 GenAI 提高效率，让团队专注建立客户关系。具体可以用它做什么？",
-            exp: "起草电子邮件并提供有关客户需求的实时洞见（典型的增强而非取代人类建立关系）。"
+            trans: "销售经理希望负责任地利用 GenAI 提高现有任务效率，让团队将精力集中在建立客户关系上。销售团队应该如何使用 GenAI？\nA. 自动生成创意博客内容...\nB. 用于起草电子邮件并提供有关客户需求的实时洞见。\nC. 自动生成根据社媒定制的推销语...\nD. 取代 CRM 系统...",
+            exp: "起草邮件和提供会议洞见能节省案头工作时间（典型的增强员工效率），而人类员工则依然把握着与客户沟通、建立信任的最终话语权。"
           },
           {
             id: 8,
@@ -1037,8 +1040,8 @@
               D: "Ensuring AI decision-making is explainable to understand decision reasons and establish accountability."
             },
             ans: "D",
-            trans: "自动化房贷审批导致意外拒绝，引发偏见担忧。为确保公平贷款，需优先考虑？",
-            exp: "确保 AI 决策可解释，以了解原因并确立问责制 (Explainability & Accountability)。"
+            trans: "自动化房贷初步审批导致几名申请人被意外拒绝，引发了投诉和偏见担忧。为确保公平的贷款行为，他们应优先考虑 AI 系统的哪个方面？\nA. 实施更严格的数据安全措施...\nB. 定期使用更多财务数据更新模型...\nC. 提高处理速度...\nD. 确保 AI 决策是可解释的，以了解决策原因并确立问责制。",
+            exp: "算法偏见导致拒贷，核心问题是算法成了“黑盒”。必须优先解决模型的可解释性 (Explainability & Accountability)，才能查明是否存在歧视并追责修正。"
           },
           {
             id: 9,
@@ -1050,8 +1053,8 @@
               D: "Drive gen AI adoption by identifying high-impact, feasible solutions that address specific challenges within their workflows."
             },
             ans: "D",
-            trans: "为确保中层管理者为 GenAI 推出的成功做出贡献，他们应该做什么？",
-            exp: "中层管理最贴近业务流程，他们的核心角色是结合痛点筛选“高性价比”的创新创意并推动落地。"
+            trans: "大公司希望确保其“中层管理者 (mid-level managers)”为成功推出 GenAI 做出贡献。中层管理者应该做什么？\nA. 向 CFO 争取资金...\nB. 制定强大的底层数据战略...\nC. 执行持续的代码测试和改进...\nD. 通过识别能解决其部门工作流中特定挑战的“高影响、高可行性方案”，来推动 GenAI 的落地采纳。",
+            exp: "高层负责出钱出愿景，基层负责试用，而中层管理者的核心角色是结合一线痛点梳理出“性价比最高、最易落地”的业务用例并带头推动。"
           }
         ]
       }
@@ -1093,7 +1096,7 @@
       return (
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-8 hover:shadow-md transition-shadow">
           <h3 className="text-lg font-medium text-gray-800 mb-5 leading-relaxed whitespace-pre-wrap">
-            <span className="inline-block bg-blue-100 text-blue-700 font-bold px-3 py-1 rounded-lg text-sm mr-3">
+            <span className="inline-block bg-blue-100 text-blue-700 font-bold px-3 py-1 rounded-lg text-sm mr-3 shadow-sm">
               Q{index + 1}
             </span>
             {question.q}
@@ -1150,20 +1153,20 @@
 
               <div className="bg-blue-50/50 rounded-xl p-5 space-y-4 text-sm text-gray-700 border border-blue-100/50">
                  <div>
-                    <h4 className="font-bold text-gray-900 flex items-center gap-2 mb-1">
-                       <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                    <h4 className="font-bold text-gray-900 flex items-center gap-2 mb-2">
+                       <svg className="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
                        中文翻译
                     </h4>
-                    <p className="whitespace-pre-line leading-relaxed text-gray-600">
+                    <div className="whitespace-pre-line leading-relaxed text-gray-700 font-medium">
                       {question.trans}
-                    </p>
+                    </div>
                  </div>
-                 <div className="pt-3 border-t border-blue-100">
-                    <h4 className="font-bold text-gray-900 flex items-center gap-2 mb-1">
-                      <svg className="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                 <div className="pt-4 border-t border-blue-200/60">
+                    <h4 className="font-bold text-gray-900 flex items-center gap-2 mb-2">
+                      <svg className="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                       考点解析
                     </h4>
-                    <p className="leading-relaxed text-gray-800 font-medium">
+                    <p className="leading-relaxed text-gray-800">
                       {question.exp}
                     </p>
                  </div>
@@ -1210,20 +1213,18 @@
       const [activeModuleIdx, setActiveModuleIdx] = useState(0);
       const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-      // --- 新增：插入水印代码 ---
+      // --- 水印代码 ---
       useEffect(() => {
-        // 1. 控制台定制打印水印 (只有打开 F12 的人才能看到)
         console.log(
           "%c 版权所有 © 微信公众号sekkoo的知识星球. 盗版必究.",
           "color: #4f46e5; font-size: 12px; font-weight: bold; font-family: sans-serif; padding: 4px; border: 1px solid #4f46e5; border-radius: 4px;"
         );
 
-        // 2. 挂载到 window 对象的深度隐藏属性 (通过常规遍历无法发现)
         if (!window.hasOwnProperty('_appWatermark')) {
           Object.defineProperty(window, '_appWatermark', {
             value: 'Created by [微信公众号sekkoo的知识星球] - Unauthorized use is monitored.',
             writable: false,
-            enumerable: false, // 设为不可枚举
+            enumerable: false,
             configurable: false
           });
         }
